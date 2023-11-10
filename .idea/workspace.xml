@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TrainDepartureTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +28,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2XwukJ7dLp6DUFptZgThXPkezYt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -51,13 +49,14 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem\src\test" />
       <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem\src\test\java" />
+      <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem\src\test" />
       <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem\src\main\java\edu\ntnu\stud" />
       <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem" />
     </key>
@@ -70,7 +69,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699552605217</updated>
-      <workItem from="1699552606196" duration="2854000" />
+      <workItem from="1699552606196" duration="3085000" />
+      <workItem from="1699556472856" duration="64000" />
+      <workItem from="1699562914393" duration="688000" />
+      <workItem from="1699618733153" duration="459000" />
+      <workItem from="1699619239399" duration="1426000" />
+      <workItem from="1699620890280" duration="4506000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -86,7 +90,14 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1699553297047</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1699555979486</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1699555979486</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
