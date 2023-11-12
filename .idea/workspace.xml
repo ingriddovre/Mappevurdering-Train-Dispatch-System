@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="javadoc and new testclass">
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="rm Time class">
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/DepartureRegisterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TrainDepartureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +64,29 @@
       <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem\src\main\java\edu\ntnu\stud" />
       <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.ntnu.stud" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TrainDispatchApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDispatchApp" />
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TrainDispatchApp" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -75,7 +102,8 @@
       <workItem from="1699618733153" duration="459000" />
       <workItem from="1699619239399" duration="1426000" />
       <workItem from="1699620890280" duration="5171000" />
-      <workItem from="1699630462382" duration="2981000" />
+      <workItem from="1699630462382" duration="3049000" />
+      <workItem from="1699780988349" duration="22835000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -105,7 +133,28 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1699626846614</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="javadoc og oppsett av del 1 ferdig">
+      <option name="closed" value="true" />
+      <created>1699633487460</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1699633487460</updated>
+    </task>
+    <task id="LOCAL−00006" summary="rm Time class &amp; full javadoc on TrainDeparture class">
+      <option name="closed" value="true" />
+      <created>1699798746373</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1699798746373</updated>
+    </task>
+    <task id="LOCAL−00007" summary="rm Time class">
+      <option name="closed" value="true" />
+      <created>1699798793264</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1699798793264</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +174,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="javadoc and new testclass" />
-    <option name="LAST_COMMIT_MESSAGE" value="javadoc and new testclass" />
+    <MESSAGE value="javadoc og oppsett av del 1 ferdig" />
+    <MESSAGE value="rm Time class &amp; full javadoc on TrainDeparture class" />
+    <MESSAGE value="rm Time class" />
+    <option name="LAST_COMMIT_MESSAGE" value="rm Time class" />
   </component>
 </project>

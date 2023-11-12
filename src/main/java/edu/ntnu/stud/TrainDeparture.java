@@ -45,7 +45,8 @@ public class TrainDeparture {
   private int delay;
 
   /**
-   * This is the constructor for the TrainDeparture class, it initializes an object of the type TrainDeparture.
+   * This is the constructor for the TrainDeparture class,
+   * it initializes an object of the type TrainDeparture.
    *
    * @param departureTime The time of departure. Format is HHMM.
    *                      If the departure is delayed, the delay is added to the departure time.
@@ -69,14 +70,21 @@ public class TrainDeparture {
   /**
    * This method is used to get the departure time.
    * The departure time is given as an Integer in the format HHMM.
-   * If the departure has a delay, the delay is added to the departure time. Therefore, the departure time is not final.
-   * It uses the LocalTime class from the java.time. package to summarize the departure time and the delay correctly.
-   * For example, if the departure time is 1155, and the delay is 10 minutes, the departure time will be 1205, and not 1165.
-   * This method returns the time in the format HHMM, not as displayed in the user-interface, HH:MM.
-   *
+   * The method returns an object og the type LocalTime.
+   * If the departure has a delay, the delay is added to the departure time.
+   * Therefore, the departure time is not final.
+   * It uses the LocalTime class from the java.time. package to summarize
+   * the departure time and the delay correctly.
+   * For example, if the departure time is 11:55, and the delay is 10 minutes,
+   * the departure time will be 1205, and not 1165.
+
    * @return summarized departure time and delay in HHMM format.
+   * @throws IllegalArgumentException if the departure time is not between 0000 and 2359.
    */
   public LocalTime getDepartureTime() {
+    if (departureTime < 0 || departureTime > 2359) {
+      throw new IllegalArgumentException("The departure time must be between 0000 and 2359.");
+    }
     LocalTime timeCalculation = LocalTime.of(departureTime / 100, departureTime % 100);
     if (delay > 0) {
       timeCalculation = timeCalculation.plusMinutes(delay);
@@ -90,8 +98,12 @@ public class TrainDeparture {
    * The delay is given as an Integer as a count of minutes after the departure.
 
    * @param delay Amount of minutes after the departure time.
+   * @throws IllegalArgumentException if the delay is not between 0 and 59.
    */
   public void setDelay(int delay) {
+    if (delay < 0 || delay > 59) {
+      throw new IllegalArgumentException("The delay must be between 0 and 59.");
+    }
     this.delay = delay;
   }
 
@@ -159,9 +171,11 @@ public class TrainDeparture {
 
   /**
    * This is a toString method used to display a specific train departure.
-   * The returned String includes the departure time, the line, the train number, the destination, the track and the delay.
+   * The returned String includes the departure time, the line, the train number,
+   * the destination, the track and the delay.
    * The method returns a String in the format:
-   * Train departure: Departure time: hh:mm, Line L1, trainNumber: 1, destination: Oslo, track 1, 0-min delay.
+   * Train departure: Departure time: hh:mm, Line L1, trainNumber:
+   * 1, destination: Oslo, track 1, 0-min delay.
 
    * @return A String representation of the TrainDeparture object.
    */
