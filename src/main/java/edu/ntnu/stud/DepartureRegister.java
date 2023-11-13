@@ -48,7 +48,7 @@ public int checkIfDepartureExists(int departureTime, String line) {
       return 0;
     }
   }
-      */
+*/
 
   public void showAllDepartures() {
     //oversikt over alle alle togavganger
@@ -84,7 +84,6 @@ public int checkIfDepartureExists(int departureTime, String line) {
   public void setTime() {
     //oppdatere klokken ved å spørre bruker etter nytt klokkeslett
   }
-
 }
 
 

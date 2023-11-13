@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="rm Time class">
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/DepartureRegisterTest.java" afterDir="false" />
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="started testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TrainDepartureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +100,12 @@
       <workItem from="1699619239399" duration="1426000" />
       <workItem from="1699620890280" duration="5171000" />
       <workItem from="1699630462382" duration="3049000" />
-      <workItem from="1699780988349" duration="22835000" />
+      <workItem from="1699780988349" duration="23205000" />
+      <workItem from="1699863310921" duration="6897000" />
+      <workItem from="1699890569003" duration="31000" />
+      <workItem from="1699890762057" duration="6324000" />
+      <workItem from="1699907175381" duration="654000" />
+      <workItem from="1699912303551" duration="8000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -154,7 +156,14 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1699798793264</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="started testing">
+      <option name="closed" value="true" />
+      <created>1699806842123</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1699806842123</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +186,7 @@
     <MESSAGE value="javadoc og oppsett av del 1 ferdig" />
     <MESSAGE value="rm Time class &amp; full javadoc on TrainDeparture class" />
     <MESSAGE value="rm Time class" />
-    <option name="LAST_COMMIT_MESSAGE" value="rm Time class" />
+    <MESSAGE value="started testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="started testing" />
   </component>
 </project>
