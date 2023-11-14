@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="started testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +43,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -50,7 +52,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -61,13 +63,18 @@
       <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem\src\main\java\edu\ntnu\stud" />
       <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="edu.ntnu.stud" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="edu.ntnu.stud" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration name="TrainDispatchApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDispatchApp" />
+  <component name="RunManager" selected="JUnit.TrainDepartureTest.assertThrows (1)">
+    <configuration name="TrainDepartureTest.assertThrows (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -75,13 +82,85 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
+      <option name="METHOD_NAME" value="assertThrows" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainDepartureTest.assertThrows" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
+      <option name="METHOD_NAME" value="assertThrows(java.time.DateTimeException)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainDepartureTest.setDelay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
+      <option name="METHOD_NAME" value="setDelay" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainDepartureTest.testGetDepartureTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
+      <option name="METHOD_NAME" value="testGetDepartureTime" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainDepartureTest.testTrainDeparture" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
+      <option name="METHOD_NAME" value="testTrainDeparture" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TrainDispatchApp" />
+        <item itemvalue="JUnit.TrainDepartureTest.assertThrows (1)" />
+        <item itemvalue="JUnit.TrainDepartureTest.assertThrows" />
+        <item itemvalue="JUnit.TrainDepartureTest.testGetDepartureTime" />
+        <item itemvalue="JUnit.TrainDepartureTest.testTrainDeparture" />
+        <item itemvalue="JUnit.TrainDepartureTest.setDelay" />
       </list>
     </recent_temporary>
   </component>
@@ -102,10 +181,10 @@
       <workItem from="1699630462382" duration="3049000" />
       <workItem from="1699780988349" duration="23205000" />
       <workItem from="1699863310921" duration="6897000" />
-      <workItem from="1699890569003" duration="31000" />
-      <workItem from="1699890762057" duration="6324000" />
-      <workItem from="1699907175381" duration="654000" />
-      <workItem from="1699912303551" duration="8000" />
+      <workItem from="1699885507884" duration="1586000" />
+      <workItem from="1699948815657" duration="48000" />
+      <workItem from="1699948867859" duration="10614000" />
+      <workItem from="1699962050662" duration="19892000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />

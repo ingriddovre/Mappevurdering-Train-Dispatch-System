@@ -13,7 +13,7 @@ import java.time.LocalTime;
  */
 
 public class TrainDeparture {
-  private int departureTime;
+  private String departureTime;
   private final String line;
   private final int trainNumber;
   private final String destination;
@@ -24,14 +24,12 @@ public class TrainDeparture {
    * TrainDeparture. The constructor takes the following parameters:
 
 
-   * @param departureTime The time of departure. The time is given as an Integer in the format HHMM,
+   * @param departureTime The time of departure. The time is a String in the format HH:MM,
    *                     it is not set as final because it can be changed if there is delay.
-   *                     The time can only contain Natural(N) numbers, therefore it is given as an
-   *                     Integer. For example 08:30 is given as 0830.
-   *                     In the user-interface the time is displayed as hh:mm. If a departure is set
-   *                     to 08:30, it will disappear from the user-interface after 08:30,
-   *                     also after the delay has passed. This depends on what current time is given
-   *                     from the user.
+   *                     If a departure is set to 08:30 it will disappear from the
+   *                     user-interface after 08:30, also after the delay has passed.
+   *                     This depends on what current time is given from the user. The datatype
+   *                     is set to String to use the LocalTime class from the java.time. package.
 
    * @param line The line the train will go. Several trains can go on the same line, but obviously
    *            not at the same time. The line is given as a final String in the format "L1", "L2",
@@ -65,18 +63,19 @@ public class TrainDeparture {
    *             mutator method.
 
    * @throws DateTimeException Is thrown if the departure time is not between 00:00 and 23:59.
-   * @throws IllegalArgumentException if the line is empty, the train number is less than 0,
+   * @throws IllegalArgumentException Is thrown if the train number is less than 0,
    *        the track is less than -1 or if the delay is not between 0 and 59.
-   * @throws NullPointerException if the destination is empty.
+   * @throws NullPointerException Is thrown if the destination or the line is empty or null.
    */
-  public TrainDeparture(int departureTime, String line, int trainNumber, String destination,
+  public TrainDeparture(String departureTime, String line, int trainNumber, String destination,
                         int track, int delay) {
-    if (departureTime < 0 || departureTime > 2359) {
-      throw new DateTimeException("Invalid departure time: " + departureTime
-          + ". Departure time must be between 0000 and 2359.");
+    try {
+      LocalTime.parse(departureTime);
+      this.departureTime = departureTime;
+    } catch (DateTimeException e) {
+      System.out.println("Invalid departure time: " + departureTime
+          + ". Departure time must be between 00:00 and 23:59.");
     }
-    this.departureTime = departureTime;
-
     if (line == null || line.isBlank()) {
       throw new NullPointerException("The line cannot be empty.");
     }
@@ -92,7 +91,7 @@ public class TrainDeparture {
     }
     this.destination = destination;
 
-    if (track < -1 || track == 0) {
+    if (track < -1) {
       throw new IllegalArgumentException("Wrong input of track: " + track
           + ". To register no track, type -1.");
     }
@@ -105,26 +104,27 @@ public class TrainDeparture {
   }
 
   /**
-   * This method is used to get the departure time. The departure time is given as an Integer in
-   * the format HHMM. The method returns an object of the type LocalTime. If the departure has a
-   * delay,the delay is added to the departure time. Therefore, the departure time is not final.
-   * It uses the LocalTime class from the java.time. package to summarize the departure time and the
-   * delay correctly. For example, if the departure time is 11:55, and the delay is 10 minutes,
-   * the departure time will be 1205, and not 1165.
+   * This method is used to get the departure time. The departure time is given as a String
+   * in the format HH:MM. The method returns an object of the type LocalTime. If the departure
+   * has a delay, the delay is added to the departure time. Therefore, the departure time is not
+   * final. It uses the LocalTime class from the java.time. package to summarize the departure time
+   * and the delay correctly. For example, if the departure time is 11:55, and the delay is 10
+   * minutes, the departure time will be 12:05, and not 11:65.
 
-   * @return summarized departure time and delay in HHMM format.
-   * @throws DateTimeException if the departure time is not between 0000 and 2359.
+   * @return summarized departure time and delay in HH:MM format.
+   * @throws DateTimeException if the departure time is not between 00:00 and 23:59.
    */
   public LocalTime getDepartureTime() {
-    if (departureTime < 0 || departureTime > 2359) {
+    try {
+      LocalTime parseDepartureTime = LocalTime.parse(departureTime);
+      if (delay > 0) {
+        parseDepartureTime = parseDepartureTime.plusMinutes(delay);
+      }
+      return parseDepartureTime;
+    } catch (DateTimeException e) {
       throw new DateTimeException("Invalid departure time: " + departureTime
-          + ". Departure time must be between 0000 and 2359.");
+              + ". Departure time must be between 00:00 and 23:59.");
     }
-    LocalTime timeCalculation = LocalTime.of(departureTime / 100, departureTime % 100);
-    if (delay > 0) {
-      timeCalculation = timeCalculation.plusMinutes(delay);
-    }
-    return timeCalculation;
   }
 
   /**
@@ -227,7 +227,7 @@ public class TrainDeparture {
    * @throws IllegalArgumentException if the track is less than -1.
    */
   public void setTrack(int track) {
-    if (track < -1 || track == 0) {
+    if (track < -1) {
       throw new IllegalArgumentException("Wrong input of track: " + track
           + ". To register no track, type -1.");
     }
