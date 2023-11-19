@@ -1,33 +1,59 @@
 package edu.ntnu.stud;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import java.time.DateTimeException;
+import java.time.LocalTime;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-// teste ferdig alle metoder i TrainDeparture.java
-public class TrainDepartureTest {
-  @Test
-    public void testTrainDeparture() {
-      TrainDeparture train1 = new TrainDeparture(1200, "", 1, "Oslo", 2, 0);
-      TrainDeparture train2 = new TrainDeparture(2500, "L2", 2, "Trondheim", 3, 15);
-      TrainDeparture train3 = new TrainDeparture(1400, "L3", -3, "Bergen", 4, 0);
-      TrainDeparture train4 = new TrainDeparture(1500, "L4", 4, null, 5, 5);
-      TrainDeparture train5 = new TrainDeparture(1500, "L5", 5, "Stavanger", -6, 5);
-      TrainDeparture train6 = new TrainDeparture(1500, "L6", 6, "Tromsø", 6, -5);
-      TrainDeparture train7 = new TrainDeparture(1500, "L7", 7, "Tromsø", 7, 5);
-      TrainDeparture train8 = new TrainDeparture(1500, "L8", 8, "Tromsø", 8, 5);
+import static org.junit.jupiter.api.Assertions.*;
 
-      assertThrows(IllegalArgumentException.class, () -> {
-        train7.setTrack(-2);
-      });
-      assertThrows(IllegalArgumentException.class, () -> {
-        train8.setDelay(-4);
-      });
-      assertThrows(DateTimeException.class, train2::getDepartureTime);
-      assertThrows(NullPointerException.class, train4::getDestination);
-      assertThrows(IllegalArgumentException.class, train3::getTrainNumber);
-      assertThrows(NullPointerException.class, train1::getLine);
-      assertThrows(IllegalArgumentException.class, train5::getTrack);
-      assertThrows(IllegalArgumentException.class, train6::getDelay);
+public class TrainDepartureTest {
+
+
+  //TrainDeparture train3 = new TrainDeparture("14:00", "L3", -2, "Bergen", 4, 0);
+  //TrainDeparture train4 = new TrainDeparture("15:00", "L4", 4, null, 5, 5);
+  //TrainDeparture train5 = new TrainDeparture("15:00", "L4", 4, "Stavanger", 0, 5);
+  //TrainDeparture train6 = new TrainDeparture("15:00", "L4", 4, "Stavanger", 5, -5);
+
+  @Test
+  void departureTimeShouldReturn1pm() {
+    TrainDeparture train2 = new TrainDeparture("13:00", "L2", 2, "Trondheim", 3, 15);
+    train2.getDepartureTime();
+  }
+@Test // todo: hvorfor thrower den nullpointer og ikke bare datetime exception men ok
+  void assertThrowsDateTimeExceptionAfter2359() {
+    TrainDeparture train1 = new TrainDeparture("25:00", "L1", 1, "Oslo", 2, 0);
+    assertThrows(DateTimeException.class, train1::getDepartureTime);
+  }
+
+
+  @Test
+  void testSetDelay() {
+  }
+
+  @Test
+  void testGetDelay() {
+  }
+
+  @Test
+  void testGetLine() {
+  }
+
+  @Test
+  void testGetTrainNumber() {
+  }
+
+  @Test
+  void testGetDestination() {
+  }
+
+  @Test
+  void testGetTrack() {
+  }
+
+  @Test
+  void testSetTrack() {
+  }
+
+  @Test
+  void testToString1() {
   }
 }

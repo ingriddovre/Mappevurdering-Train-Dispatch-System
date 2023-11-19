@@ -2,6 +2,8 @@ package edu.ntnu.stud;
 
 import java.time.DateTimeException;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
+
 /**
  * This class represents one specific train departure. This is a Parent class, and it is used by
  * the DepartureRegister class. A train departure has a departure time, a line, a train number,
@@ -13,7 +15,7 @@ import java.time.LocalTime;
  */
 
 public class TrainDeparture {
-  private String departureTime;
+  private LocalTime departureTime;
   private final String line;
   private final int trainNumber;
   private final String destination;
@@ -69,36 +71,57 @@ public class TrainDeparture {
    */
   public TrainDeparture(String departureTime, String line, int trainNumber, String destination,
                         int track, int delay) {
+    LocalTime finalDepartureTime = LocalTime.of(0, 0);
     try {
-      LocalTime.parse(departureTime);
-      this.departureTime = departureTime;
+      finalDepartureTime = LocalTime.parse(departureTime);
     } catch (DateTimeException e) {
       System.out.println("Invalid departure time: " + departureTime
-          + ". Departure time must be between 00:00 and 23:59.");
+          + ". Departure time must be between 00:00 and 23:59, and in the format: HH:MM");
     }
-    if (line == null || line.isBlank()) {
-      throw new NullPointerException("The line cannot be empty.");
+    this.departureTime = finalDepartureTime;
+
+    try {
+      if (line == null || line.isBlank()) {
+        throw new NullPointerException("Invalid line: " + line);
+      }
+    } catch (NullPointerException e) {
+      System.out.println("The line cannot be empty.");
     }
     this.line = line;
 
-    if (trainNumber < 0) {
-      throw new IllegalArgumentException("The train number cannot be negative.");
+    try {
+      if (trainNumber < 0 || trainNumber > 1000) {
+        throw new IllegalArgumentException("Invalid train number: " + trainNumber);
+      }
+    } catch (IllegalArgumentException e) {
+      System.out.println("Please enter a new train number.");
     }
     this.trainNumber = trainNumber;
 
-    if (destination == null || destination.isBlank()) {
-      throw new NullPointerException("Please enter a destination.");
+    try {
+      if (destination == null || destination.isBlank()) {
+        throw new NullPointerException("Invalid destination.");
+      }
+    } catch (NullPointerException e) {
+      System.out.println("Please enter a destination.");
     }
     this.destination = destination;
 
-    if (track < -1) {
-      throw new IllegalArgumentException("Wrong input of track: " + track
-          + ". To register no track, type -1.");
+    try {
+      if (track < -1) {
+        throw new IllegalArgumentException("Wrong input of track: " + track);
+      }
+    } catch (IllegalArgumentException e) {
+      System.out.println("Please register a new track in the correct format. For no track type -1");
     }
     this.track = track;
 
-    if (delay < 0 || delay > 59) {
-      throw new IllegalArgumentException("The delay must be between 0 and 59.");
+    try {
+      if (delay < 0 || delay > 59) {
+        throw new IllegalArgumentException("Invalid delay time: " + delay);
+      }
+    } catch (IllegalArgumentException e) {
+        System.out.println("The delay must be between 0 and 59. Please enter a new delay.");
     }
     this.delay = delay;
   }
@@ -112,19 +135,31 @@ public class TrainDeparture {
    * minutes, the departure time will be 12:05, and not 11:65.
 
    * @return summarized departure time and delay in HH:MM format.
-   * @throws DateTimeException if the departure time is not between 00:00 and 23:59.
+   * @throws DateTimeException if the departure time is not between 00:00 and 23:59, or is in
+   *      the wrong format and therefor cannot be parsed.
+   * @throws IllegalArgumentException if the delay is less than 0.
    */
   public LocalTime getDepartureTime() {
+    LocalTime parseDepartureTime = LocalTime.of(0, 0);
     try {
-      LocalTime parseDepartureTime = LocalTime.parse(departureTime);
+      parseDepartureTime = LocalTime.parse(String.valueOf(departureTime));
       if (delay > 0) {
         parseDepartureTime = parseDepartureTime.plusMinutes(delay);
+
+      } else if (delay < 0) {
+        throw new IllegalArgumentException("Invalid delay time: " + delay);
+
+      } else if (parseDepartureTime.isBefore(LocalTime.parse("00:00"))
+          || parseDepartureTime.isAfter(LocalTime.parse("23:59"))) {
+        throw new DateTimeException("Invalid departure time: " + departureTime);
       }
-      return parseDepartureTime;
     } catch (DateTimeException e) {
-      throw new DateTimeException("Invalid departure time: " + departureTime
-              + ". Departure time must be between 00:00 and 23:59.");
+      System.out.println("Invalid departure time: " + departureTime
+          + ". Departure time must be between 00:00 and 23:59.");
+    } catch (IllegalArgumentException e) {
+      System.out.println("The delay cannot be negative.");
     }
+    return parseDepartureTime;
   }
 
   /**

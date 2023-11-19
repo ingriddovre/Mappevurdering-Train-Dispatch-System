@@ -14,36 +14,6 @@ import java.util.Scanner;
 public class UserInterface {
   DepartureRegister depReg = new DepartureRegister();
   Scanner scanner = new Scanner(System.in);
-
-  /**
-   * This method is used to start the user-interface and the Train Dispatch Application.
-   */
-  public void start() {
-    TrainDeparture train1 = new TrainDeparture("12:00", "L1", 1, "Oslo", 2, 0);
-    TrainDeparture train2 = new TrainDeparture("13:00", "L2", 2, "Trondheim", 3, 15);
-    TrainDeparture train3 = new TrainDeparture("14:00", "L3", 3, "Bergen", 4, 0);
-    TrainDeparture train4 = new TrainDeparture("15:00", "L4", 4, "Stavanger", 5, 5);
-    depReg.allDepartures.add(train1);
-    depReg.allDepartures.add(train2);
-    depReg.allDepartures.add(train3);
-    depReg.allDepartures.add(train4);
-
-    int choice = scanner.nextInt();
-    while (choice != 8) {
-      switch (choice) {
-        case 1 -> uiNewDeparture();
-        case 2 -> uiSetTrack();
-        case 3 -> uiSetDelay();
-        case 4 -> uiSearchByTrainNumber();
-        case 5 -> uiSearchByDestination();
-        case 6 -> uiSetNewTime();
-        case 7 -> depReg.showAllDepartures();
-        default -> System.out.println("Invalid input. Please try again.");
-      }
-    }
-    System.out.println("Exiting the Train Dispatch Application.");
-  }
-
   /**
    * This method is used to initialize the user-interface.
    * The user is asked to register the current time, and is then presented with a menu of options.
@@ -54,14 +24,9 @@ public class UserInterface {
    *
    * @see TrainDispatchApp The Train Dispatch Application class.
    */
+
   public void init() {
-    DepartureRegister depReg = new DepartureRegister();
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Welcome to the train dispatch application.");
-    System.out.println("First, register you current time (hhmm): ");
-    String currentTime = scanner.nextLine();
-    depReg.setTime(currentTime);
-    System.out.println("You set the current time to be: " + depReg.getTime());
+
     System.out.println("""
         Please choose one of the following options:
         1. Register a new departure.
@@ -71,10 +36,53 @@ public class UserInterface {
         5. Search for departures by destination.
         6. Update the time.
         7. Show all departures.
+        8. Show departures leaving after a chosen time.
         8. Exit.""");
   }
+  /**
+   * This method is used to start the user-interface and the Train Dispatch Application.
+   */
+
+  public void start() {
+    DepartureRegister depReg = new DepartureRegister();
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Welcome to the Train Dispatch Application!");
+    System.out.println("First, register you current time (hhmm): ");
+    String currentTime = scanner.nextLine();
+    depReg.setCurrentTime(currentTime);
+    System.out.println("You set the current time to be: " + depReg.getCurrentTime());
+
+    TrainDeparture train1 = new TrainDeparture("12:00", "L1", 1, "Oslo", 2, 0);
+    TrainDeparture train2 = new TrainDeparture("13:00", "L2", 2, "Trondheim", 3, 15);
+    TrainDeparture train3 = new TrainDeparture("14:00", "L3", 3, "Bergen", 4, 0);
+    TrainDeparture train4 = new TrainDeparture("15:00", "L4", 4, "Stavanger", 5, 5);
+    depReg.allDepartures.add(train1);
+    depReg.allDepartures.add(train2);
+    depReg.allDepartures.add(train3);
+    depReg.allDepartures.add(train4);
+
+    int choice = scanner.nextInt();
+    while (choice != 9) {
+      switch (choice) {
+        case 1 -> uiNewDeparture();
+        case 2 -> uiSetTrack();
+        case 3 -> uiSetDelay();
+        case 4 -> uiSearchByTrainNumber();
+        case 5 -> uiSearchByDestination();
+        case 6 -> uiSetNewTime();
+        case 7 -> {
+          depReg.sortListByTime(depReg.getAllDepartures());
+          depReg.showListOfDepartures(depReg.getAllDepartures());
+        }
+        case 8 -> uiRemoveDeparturesBeforeChosenTime();
+        default -> System.out.println("Invalid input. Please try again.");
+      }
+    }
+    System.out.println("Exiting the Train Dispatch Application.");
+  }
+
+
   // TODO: er det meningen at delay kun skal være toppet 59, eller skal man kunne ta så lang delay man vil?
-  // TODO: husk å sette opp all brukerkommunikasjon her, alle metoder skal kun gjøre EN oppgave, det innebærer ikke user interaction
 
   /**
    * This method is used to communicate with the user before registering a new departure.
@@ -94,7 +102,9 @@ public class UserInterface {
       }
     }
     if (trainExists) { // TODO: skal ikke bruker få tilbakemelding her, eller er d som står i del 2 cap?
-      System.out.println("The train is registered");
+      System.out.println("The train with train number: " + trainNumber + " is registered");
+      depReg.sortListByTime(depReg.getAllDepartures());
+      System.out.println(depReg.showListOfDepartures(depReg.getAllDepartures()));
 
     } else {
       while (trainNumber < 0) {
@@ -102,9 +112,10 @@ public class UserInterface {
         trainNumber = scanner.nextInt();
       }
       System.out.println("When is the departure? (HH:MM) ");
-      String departureTime = scanner.nextLine();
+      String inputDepartureTime = scanner.nextLine();
+      LocalTime departureTime = null;
       try {
-        LocalTime.parse(departureTime);
+        departureTime = LocalTime.parse(inputDepartureTime);
       } catch (DateTimeException e) {
         System.out.println("Please enter the time in the correct format (HH:MM).");
         uiNewDeparture();
@@ -143,7 +154,7 @@ public class UserInterface {
         System.out.println("Invalid delay. Please try again. \nType 0 if there is no delay.");
         delay = scanner.nextInt();
       }
-      depReg.newDeparture(departureTime, line, trainNumber, destination, track, delay);
+      depReg.newDeparture(String.valueOf(departureTime), line, trainNumber, destination, track, delay);
       System.out.println("The departure has been registered.");
     }
   }
@@ -209,6 +220,25 @@ public class UserInterface {
   }
 
   /**
+   * This method is used to only show departures leaving after a chosen time by the user.
+   * The user is asked to enter a time, and the method will remove all departures leaving before
+   * that time, using the removeDeparturesBeforeChosenTime() method in the DepartureRegister class.
+   */
+  private void uiRemoveDeparturesBeforeChosenTime() {
+    System.out.println("Please specify the time for your preferred earliest departure:");
+    String chosenTime = scanner.nextLine();
+    LocalTime preferredTime = null;
+    try {
+      preferredTime = LocalTime.parse(chosenTime);
+    } catch (DateTimeException | NullPointerException e) {
+      System.out.println("Please enter the time in the correct format (HH:MM).\nThe time can not be"
+          + "less than 00:00 or more than 23:59.");
+      uiRemoveDeparturesBeforeChosenTime();
+    }
+    depReg.removeDeparturesBeforeChosenTime(preferredTime);
+  }
+
+  /**
    * This method asks the user to enter a train number, and then asks to enter a track to set for
    * the departure with that train number. The method checks if the departure exists, and if it
    * does, the track is set to the departure with the setTrackToDeparture method. If the departure
@@ -265,7 +295,7 @@ public class UserInterface {
           + "less than 00:00 or more than 23:59.");
       uiSetNewTime();
     }
-    depReg.setTime(newTime);
+    depReg.setCurrentTime(newTime);
   }
 
 }
