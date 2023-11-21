@@ -9,9 +9,11 @@ import java.time.format.DateTimeParseException;
  * the DepartureRegister class. A train departure has a departure time, a line, a train number,
  * a destination, a track and possibly a delay. The class has a constructor, and several accessor
  * and mutator methods and a toString method.
+ * <p>Goal: To create a class that represents a train departure.
  *
- * @version 4.11.2023-12.11.2023
  * @author Ingrid Midtmoen Døvre
+ * @version 1.0
+ * @since 0.1
  */
 
 public class TrainDeparture {
@@ -25,105 +27,118 @@ public class TrainDeparture {
    * This is the constructor for the TrainDeparture class. It initializes an object of the type
    * TrainDeparture. The constructor takes the following parameters:
 
-
    * @param departureTime The time of departure. The time is a String in the format HH:MM,
    *                     it is not set as final because it can be changed if there is delay.
-   *                     If a departure is set to 08:30 it will disappear from the
-   *                     user-interface after 08:30, also after the delay has passed.
-   *                     This depends on what current time is given from the user. The datatype
-   *                     is set to String to use the LocalTime class from the java.time. package.
-
+   *                     <p>If a departure is set to 08:30 it will disappear from the user interface
+   *                     after 08:30, also after the delay has passed. This depends on what current
+   *                     time is given from the user. The datatype is set to String to use the
+   *                     LocalTime class from the java.time. package.</p>
    * @param line The line the train will go. Several trains can go on the same line, but obviously
    *            not at the same time. The line is given as a final String in the format "L1", "L2",
-   *            "L3" and so on. And it will be displayed accordingly in the user-interface.
-   *            This attribute is set as a String because it contains both letters and numbers,
-   *            and will not be needed for further mathematical calculations.
-
+   *            "L3" and so on. It will be displayed accordingly in the user-interface.
+   *            <p>This attribute is set as a String because it contains both letters and numbers,
+   *            and will not be needed for further mathematical calculations.</p>
    * @param trainNumber The train number is a unique number for each train. The train number is
-   *                    given as an Integer. The number is unique within a 24-hour period.
+   *                    given as an Integer. The number is unique within a 24-hour period.<p>
    *                    The train number is set as a final Integer because it will not be changed,
-   *                    and the number will only contain Natural(N) numbers.
-
+   *                    and the number will only contain Natural(N) numbers.</p>
    * @param destination The final destination for the train. The destination is given as a String,
-   *                    and is displayed accordingly. Setting the destinations attribute as a final
-   *                    String is most appropriate because it is only a word. For example a train
-   *                    departure from Trondheim to Oslo, has Oslo as its destination,
-   *                    and this will not change.
-
+   *                    and is displayed accordingly.<p>Setting the destinations attribute as a
+   *                    final String is most appropriate because it is only a word. For example, a
+   *                    train departure from Trondheim to Oslo, has Oslo as its final destination,
+   *                    and this will not change.</p>
    * @param track The track the train will depart from. The track is given as an Integer because it
-   *             is a one-digit number. It is not set as a final attribute because not all trains
+   *             is a one-digit number. <p>It is not set as a final attribute because not all trains
    *             have a track, in these cases the track is set to -1, and it can be changed, or set,
-   *             later with a mutator method.
-
+   *             later with a mutator method.</p>
    * @param delay The delay for the departure. The delay is given as an Integer, since the delay
    *             time only contains Natural(N) numbers. The delay is usually not longer than a few
-   *             minutes, therefore it is given in the format M (how many minutes), not HHMM,
-   *             like the departure time. If there is no delay, it will not be displayed, and it is
-   *             set to 0000. If there is a delay, it will be displayed as hh:mm in the
-   *             user-interface. Not all trains have a delay, or the delay will come later,
-   *             therefore it is not a final Integer, and it can be changed, or set, later with a
-   *             mutator method.
-
-   * @throws DateTimeException Is thrown if the departure time is not between 00:00 and 23:59.
-   * @throws IllegalArgumentException Is thrown if the train number is less than 0,
-   *        the track is less than -1 or if the delay is not between 0 and 59.
-   * @throws NullPointerException Is thrown if the destination or the line is empty or null.
+   *             minutes, therefore it is given in the format M (how many minutes), not HH:MM,
+   *             like the departure time. If there is no delay, it will not be displayed. If there
+   *             is a delay, it will be displayed as HH:MM in the user-interface.
+   *             <p>Not all trains have a delay, or the delay will come later, therefore it is
+   *             not a final Integer, and it can be changed, or set, later with a
+   *             mutator method.</p>
    */
   public TrainDeparture(String departureTime, String line, int trainNumber, String destination,
                         int track, int delay) {
-    LocalTime finalDepartureTime = LocalTime.of(0, 0);
-    try {
-      finalDepartureTime = LocalTime.parse(departureTime);
-    } catch (DateTimeException e) {
-      System.out.println("Invalid departure time: " + departureTime
-          + ". Departure time must be between 00:00 and 23:59, and in the format: HH:MM");
-    }
-    this.departureTime = finalDepartureTime;
+    verifyInputLocalTime(departureTime);
+    verifyInputString(line, "line");
+    verifyInputIntegers(trainNumber, "trainNumber");
+    verifyInputString(destination, "destination");
+    verifyInputIntegers(track, "track");
+    verifyInputDelay(delay);
 
-    try {
-      if (line == null || line.isBlank()) {
-        throw new NullPointerException("Invalid line: " + line);
-      }
-    } catch (NullPointerException e) {
-      System.out.println("The line cannot be empty.");
-    }
+    this.departureTime = LocalTime.parse(departureTime);
     this.line = line;
-
-    try {
-      if (trainNumber < 0 || trainNumber > 1000) {
-        throw new IllegalArgumentException("Invalid train number: " + trainNumber);
-      }
-    } catch (IllegalArgumentException e) {
-      System.out.println("Please enter a new train number.");
-    }
     this.trainNumber = trainNumber;
-
-    try {
-      if (destination == null || destination.isBlank()) {
-        throw new NullPointerException("Invalid destination.");
-      }
-    } catch (NullPointerException e) {
-      System.out.println("Please enter a destination.");
-    }
     this.destination = destination;
-
-    try {
-      if (track < -1) {
-        throw new IllegalArgumentException("Wrong input of track: " + track);
-      }
-    } catch (IllegalArgumentException e) {
-      System.out.println("Please register a new track in the correct format. For no track type -1");
-    }
     this.track = track;
-
-    try {
-      if (delay < 0 || delay > 59) {
-        throw new IllegalArgumentException("Invalid delay time: " + delay);
-      }
-    } catch (IllegalArgumentException e) {
-        System.out.println("The delay must be between 0 and 59. Please enter a new delay.");
-    }
     this.delay = delay;
+  }
+
+  /**
+   * This method is used to verify input from the user of values that are supposed to be parsed into
+   * LocalTime objects. These Strings cannot be null or empty, and they have to be in the format
+   * HH:MM. This method is used to verify the departure time and the current time.
+
+   * @param exampleTime a String variable that is supposed to be verified before being parsed to an
+   *                    LocalTime object. The String is supposed to be in the format HH:MM.
+   * @throws DateTimeParseException if the String cannot be parsed to a LocalTime object or is null.
+   * @throws DateTimeException if the String is before 00:00 or after 23:59.
+   *
+   */
+  private void verifyInputLocalTime(String exampleTime) throws DateTimeParseException,
+      DateTimeException {
+    LocalTime finalDepartureTime = LocalTime.parse(exampleTime);
+    if (finalDepartureTime.isBefore(LocalTime.parse("00:00"))
+        || finalDepartureTime.isAfter(LocalTime.parse("23:59")) || exampleTime.isEmpty()) {
+      throw new DateTimeException("Invalid input of time: " + exampleTime + " for departure time");
+    }
+  }
+  /**
+   * This method is used to verify the input from the user of values not supposed to be null or
+   * empty. This method is used to verify the line and the destination.
+
+   * @param exampleString a String variable that is supposed to be verified.
+   * @param parameterName the name of the parameter that is supposed to be verified.
+   * @throws NullPointerException if the String is empty or null.
+   */
+  private void verifyInputString(String exampleString, String parameterName) throws
+      NullPointerException {
+    if (exampleString == null || exampleString.isBlank()) {
+      throw new NullPointerException("Invalid string: " + exampleString + " for " + parameterName);
+    }
+  }
+
+  /**
+   * This method is used to verify the delay value. The delay can obviously not be negative, and it
+   * should not be more than 59 minutes. If the delay is more than 59 minutes, it is more useful to
+   * set a new departure time instead.
+   *
+   * @param exampleDelay an Integer variable that is supposed to be verified.
+   * @throws IllegalArgumentException if the delay is not between 0 and 59.
+   */
+  private void verifyInputDelay(int exampleDelay) throws IllegalArgumentException {
+    if (exampleDelay < 0 || exampleDelay > 59) {
+      throw new IllegalArgumentException("Invalid delay time: " + exampleDelay + " for delay");
+    }
+  }
+
+  /**
+   * This method is used to verify the input from the user of values not supposed to be less than 0.
+   * This method is used to verify the train number, and the
+
+   * @param exampleInteger an Integer variable that is supposed to be verified.
+   * @param parameterName the name of the parameter that is supposed to be verified.
+   * @throws IllegalArgumentException if the Integer is less than 0.
+   */
+  private void verifyInputIntegers(int exampleInteger, String parameterName) throws
+      IllegalArgumentException {
+    if (exampleInteger < 0) {
+      throw new IllegalArgumentException("Invalid integer: " + exampleInteger + " for "
+          + parameterName);
+    }
   }
 
   /**
@@ -135,31 +150,9 @@ public class TrainDeparture {
    * minutes, the departure time will be 12:05, and not 11:65.
 
    * @return summarized departure time and delay in HH:MM format.
-   * @throws DateTimeException if the departure time is not between 00:00 and 23:59, or is in
-   *      the wrong format and therefor cannot be parsed.
-   * @throws IllegalArgumentException if the delay is less than 0.
    */
   public LocalTime getDepartureTime() {
-    LocalTime parseDepartureTime = LocalTime.of(0, 0);
-    try {
-      parseDepartureTime = LocalTime.parse(String.valueOf(departureTime));
-      if (delay > 0) {
-        parseDepartureTime = parseDepartureTime.plusMinutes(delay);
-
-      } else if (delay < 0) {
-        throw new IllegalArgumentException("Invalid delay time: " + delay);
-
-      } else if (parseDepartureTime.isBefore(LocalTime.parse("00:00"))
-          || parseDepartureTime.isAfter(LocalTime.parse("23:59"))) {
-        throw new DateTimeException("Invalid departure time: " + departureTime);
-      }
-    } catch (DateTimeException e) {
-      System.out.println("Invalid departure time: " + departureTime
-          + ". Departure time must be between 00:00 and 23:59.");
-    } catch (IllegalArgumentException e) {
-      System.out.println("The delay cannot be negative.");
-    }
-    return parseDepartureTime;
+    return departureTime.plusMinutes(delay);
   }
 
   /**
@@ -171,9 +164,7 @@ public class TrainDeparture {
    * @throws IllegalArgumentException if the delay is not between 0 and 59.
    */
   public void setDelay(int delay) {
-    if (delay < 0 || delay > 59) {
-      throw new IllegalArgumentException("The delay must be between 0 and 59.");
-    }
+    verifyInputDelay(delay);
     this.delay = delay;
   }
 
@@ -183,12 +174,8 @@ public class TrainDeparture {
    * If there is no delay, it is set to 0, and is not displayed in the user-interface.
 
    * @return The delay in amount of minutes.
-   * @throws IllegalArgumentException if the delay is not between 0 and 59.
    */
   public int getDelay() {
-    if (delay < 0 || delay > 59) {
-      throw new IllegalArgumentException("The delay must be between 0 and 59.");
-    }
     return delay;
   }
 
@@ -200,9 +187,6 @@ public class TrainDeparture {
    * @throws NullPointerException if the line is empty.
    */
   public String getLine() {
-    if (line == null || line.isBlank()) {
-      throw new NullPointerException("The line cannot be empty.");
-    }
     return line;
   }
 
@@ -211,17 +195,9 @@ public class TrainDeparture {
    * The train number is given as an Integer, and is unique within a 24-hour period.
 
    * @return The unique train number for the departure.
-   * @throws IllegalArgumentException if the train number is less than 0.
    */
   public int getTrainNumber() {
-    try {
-      if (trainNumber < 0) {
-        throw new IllegalArgumentException();
-      }
-      return trainNumber;
-    } catch (Exception e) {
-      throw new IllegalArgumentException("The train number cannot be negative.");
-    }
+    return trainNumber;
   }
 
   /**
@@ -229,12 +205,8 @@ public class TrainDeparture {
    * The destination is given as a String. It is decided by the final destination of the departure.
 
    * @return The final destination of the departure.
-   * @throws NullPointerException if the destination is empty.
    */
   public String getDestination() {
-    if (destination == null || destination.isBlank()) {
-      throw new NullPointerException("Please enter a destination.");
-    }
     return destination;
   }
 
@@ -244,13 +216,8 @@ public class TrainDeparture {
    * The track is given as an Integer.
 
    * @return The number that represents the track the train will depart from.
-   * @throws IllegalArgumentException if the track is less than -1.
    */
   public int getTrack() {
-    if (track < -1) {
-      throw new IllegalArgumentException("Wrong input of track: " + track
-          + ". To register no track, type -1.");
-    }
     return track;
   }
 
@@ -262,11 +229,12 @@ public class TrainDeparture {
    * @throws IllegalArgumentException if the track is less than -1.
    */
   public void setTrack(int track) {
-    if (track < -1) {
-      throw new IllegalArgumentException("Wrong input of track: " + track
-          + ". To register no track, type -1.");
+    verifyInputIntegers(track, "track");
+    if (track == 0) {
+      this.track = -1;
+    } else {
+      this.track = track;
     }
-    this.track = track;
   }
 
   /**
