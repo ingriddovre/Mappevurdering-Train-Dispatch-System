@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="finished methods for exceptions + javadoc">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" afterDir="false" />
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="implemented new Time class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +229,7 @@
       <workItem from="1700551180505" duration="12554000" />
       <workItem from="1700573953244" duration="10747000" />
       <workItem from="1700732770421" duration="55000" />
-      <workItem from="1700732838893" duration="531000" />
+      <workItem from="1700732838893" duration="12110000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -310,7 +308,14 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1700582874747</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="implemented new Time class">
+      <option name="closed" value="true" />
+      <created>1700735324678</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1700735324678</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +342,8 @@
     <MESSAGE value="implemented register class methods" />
     <MESSAGE value="added search and show all methods" />
     <MESSAGE value="finished methods for exceptions + javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished methods for exceptions + javadoc" />
+    <MESSAGE value="implemented new Time class" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented new Time class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

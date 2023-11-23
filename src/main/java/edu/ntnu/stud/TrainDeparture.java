@@ -13,7 +13,7 @@ import java.time.format.DateTimeParseException;
  * <p>Goal: To create a class that represents a train departure.
 
  * @author Ingrid Midtmoen Døvre
- * @version 1.0
+ * @version 1.1
  * @since 0.1
  */
 
@@ -93,7 +93,6 @@ public class TrainDeparture {
   private void verifyInputLocalTime(String exampleTime) throws DateTimeException {
     Time time = new Time();
     time.verifyInputOfTime(exampleTime, "departure time");
-
   }
   /**
    * This method is used to verify the input from the user of values not supposed to be null or
@@ -155,6 +154,17 @@ public class TrainDeparture {
   }
 
   /**
+   * This method is used to set a new departure time for a departure. This method is useful if
+   * a departure has more than 59 min of delay. The method takes in a String parameter of the new
+   * departure time in the format HH:MM. It then calls the verifyInputLocalTime method to verify the
+   * input, and then parses the String to a LocalTime object.
+   */
+  public void setNewDepartureTime(String newDepartureTime) throws DateTimeException {
+    verifyInputLocalTime(newDepartureTime);
+    this.departureTime = LocalTime.parse(newDepartureTime);
+  }
+
+  /**
    * This method is used to set the delay.
    * If there is no delay, the delay is set to 0.
    * The delay is given as an Integer as a count of minutes after the departure.
@@ -162,7 +172,7 @@ public class TrainDeparture {
    * @param delay Amount of minutes after the departure time.
    * @throws IllegalArgumentException if the delay is not between 0 and 59.
    */
-  public void setDelay(int delay) {
+  public void setDelay(int delay) throws IllegalArgumentException {
     verifyInputDelay(delay);
     this.delay = delay;
   }
@@ -216,7 +226,7 @@ public class TrainDeparture {
    * @param track The track the train will depart from.
    * @throws IllegalArgumentException if the track is less than -1.
    */
-  public void setTrack(int track) {
+  public void setTrack(int track) throws IllegalArgumentException {
     verifyInputIntegers(track, "track");
     if (track == 0) {
       this.track = -1;

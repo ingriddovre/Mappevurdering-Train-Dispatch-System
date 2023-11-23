@@ -38,6 +38,7 @@ public class DepartureRegister {
 
   /**
    * This is an accessor method for the allDepartures ArrayList.
+
    * @return allDepartures, an ArrayList of all the departures registered.
    */
   public ArrayList<TrainDeparture> getAllDepartures() {
@@ -78,20 +79,23 @@ public class DepartureRegister {
    * ArrayList of all departures registered, and then checks if the departure time is before the
    * chosen time. If it is, the departure is removed from the new list. Then the list is sorted, and
    * showed to the user via the sortListByTime() and showListOfDepartures() method.
+
    * @param chosenTime LocalTime object of the chosen time by the user.
    */
-  public void removeDeparturesBeforeChosenTime(LocalTime chosenTime) {
+  public String removeDeparturesBeforeChosenTime(LocalTime chosenTime) {
     ArrayList<TrainDeparture> departuresBeforeTime = new ArrayList<>(allDepartures);
     departuresBeforeTime.forEach(departure -> {
       if (departure.getDepartureTime().isBefore(chosenTime)) {
         departuresBeforeTime.remove(departure);
       }
     });
-    showListOfDepartures(departuresBeforeTime);
+    return showListOfDepartures(departuresBeforeTime);
   }
 
   /**
    * This method is used to set  a track to a departure by searching with the train number.
+   *
+
    * @param trainNumber The unique train number of the departure.
    * @param track The track number for the departure.
    */
@@ -105,6 +109,7 @@ public class DepartureRegister {
 
   /**
    * This method is used to set the delay for a departure, by searching with the train number.
+
    * @param trainNumber The unique train number of the departure.
    * @param delay The delay of the departure.
    */
@@ -117,10 +122,27 @@ public class DepartureRegister {
   }
 
   /**
+   * This method is used before setting a new departure time, to find the departure with the right
+   * train number. Then the method calls the setNewDepartureTime() method in the Train Departure
+   * class to set the new departure time.
+
+   * @param trainNumber The unique train number of the departure.
+   * @param newDepartureTime The new departure time of the departure.
+   */
+  public void setNewDepartureTime(int trainNumber, String newDepartureTime) {
+    allDepartures.forEach(departure -> {
+      if (trainNumber == departure.getTrainNumber()) {
+        departure.setNewDepartureTime(newDepartureTime);
+      }
+    });
+  }
+
+  /**
    * This method is sorting ArrayLists by time before they are shown to the user via the
    * showListOfDepartures() method. First, it checks all the departures in the list if the current
    * time is after the departure time. If it is, the departure is removed from the list. Then the
    * list is sorted by time, and shown to the user via the showListOfDepartures() method.
+
    * @param listOfDepartures An ArrayList of Train departures to be sorted.
    */
   private void sortListByTime(ArrayList<TrainDeparture> listOfDepartures) {
@@ -134,26 +156,29 @@ public class DepartureRegister {
 
   /**
    * This method creates a list of departures from a given ArrayList of departures.
+
    * @param chosenDepartures The ArrayList of chosen departures.
    * @return a String object with all information about the departures, as a list.
    */
   public String showListOfDepartures(ArrayList<TrainDeparture> chosenDepartures) {
     sortListByTime(chosenDepartures);
     StringBuilder listOfDepartures = new StringBuilder();
-    listOfDepartures.append("---------------------------------------------------------------"
-        + "-------\n");
-    listOfDepartures.append(String.format("| %-10s | %-5s | %-25s | %-5s | %10s |",
-        "Departure edu.ntnu.stud.Time", "Line", "Destination", "Track", " "));
-    listOfDepartures.append("---------------------------------------------------------------"
-        + "-------\n");
+    listOfDepartures.append("------------------------------------------------------------"
+        + "----------------------------\n");
+    listOfDepartures.append(String.format("| %-13s | %-14s | %-5s | %20s | %-5s | %-12s |",
+        "Train number", "Departure time", "Line", "Destination", "Track", "minutes left"));
+    listOfDepartures.append("""
+
+        ----------------------------------------------------------------------------------------
+        """);
     chosenDepartures.forEach(departure -> {
-      listOfDepartures.append(String.format("| %-10s | %-5s | %-25s | %-5s | %-10s |",
-          departure.getDepartureTime(), departure.getLine(), departure.getDestination(),
-          departure.getTrack(), minutesUntilDeparture(departure.getDepartureTime(),
-              departure.getTrainNumber())));
+      listOfDepartures.append(String.format("| %13s | %14s | %5s | %20s | %5s | %12s |\n",
+          departure.getTrainNumber(), departure.getDepartureTime(), departure.getLine(),
+          departure.getDestination(), departure.getTrack(),
+          minutesUntilDeparture(departure.getDepartureTime(), departure.getTrainNumber())));
     });
-    listOfDepartures.append("---------------------------------------------------------------"
-        + "-------\n");
+    listOfDepartures.append("------------------------------------------------------------"
+        + "----------------------------\n");
     return listOfDepartures.toString();
   }
 
@@ -161,16 +186,17 @@ public class DepartureRegister {
    * This method is used to search for a department in the register with the train number.
    * It searches for the department in the register, and adds it to a new ArrayList.
    * Then calls the showListOfDepartures() method to show the list of departures.
+
    * @param trainNumber The train number of the departure.
    */
-  public void searchByTrainNumber(int trainNumber) {
+  public String searchByTrainNumber(int trainNumber) {
     ArrayList<TrainDeparture> departureWithTrainNumber = new ArrayList<>();
     allDepartures.forEach(departure -> {
       if (trainNumber == departure.getTrainNumber()) {
         departureWithTrainNumber.add(departure);
       }
     });
-    showListOfDepartures(departureWithTrainNumber);
+    return showListOfDepartures(departureWithTrainNumber);
   }
 
   /**
@@ -178,9 +204,10 @@ public class DepartureRegister {
    * allDepartures ArrayList for the departures going to the specified destination.
    * Then adds those departures into a new ArrayList which is used to make the visual list for
    * the user, by calling the showListOfDepartures() method.
+
    * @param destination The destination of the departure.
    */
-  public void searchByDestination(String destination) {
+  public String searchByDestination(String destination) {
     ArrayList<TrainDeparture> toDestination = new ArrayList<>();
     allDepartures.forEach(departure -> {
       if (destination.equals(departure.getDestination())
@@ -188,7 +215,7 @@ public class DepartureRegister {
         toDestination.add(departure);
       }
     });
-    showListOfDepartures(toDestination);
+    return showListOfDepartures(toDestination);
   }
 
   /**
@@ -213,6 +240,7 @@ public class DepartureRegister {
   /**
    * This method calculates the minutes left before departure time. It is set to private because it
    * is only used in this class inside the searchByDestination() and showAllDepartures() methods.
+
    * @param departureTime the departure time of the departure.
    * @param trainNumber the train number of the departure.
    * @return an Integer value of the minutes left before departure.
@@ -220,13 +248,13 @@ public class DepartureRegister {
   private int minutesUntilDeparture(LocalTime departureTime, int trainNumber) {
     int minutesLeft = 0;
     for (TrainDeparture departure : allDepartures) {
-      if (departure.getDepartureTime().equals(departureTime) && departure.getTrainNumber() == trainNumber) {
+      if (departure.getDepartureTime().equals(departureTime) && departure.getTrainNumber()
+          == trainNumber) {
         minutesLeft = time.getCurrentTime().compareTo(departure.getDepartureTime());
       }
     }
     return minutesLeft;
   }
-
 }
 
 
