@@ -9,8 +9,9 @@ import java.time.format.DateTimeParseException;
  * the DepartureRegister class. A train departure has a departure time, a line, a train number,
  * a destination, a track and possibly a delay. The class has a constructor, and several accessor
  * and mutator methods and a toString method.
- * <p>Goal: To create a class that represents a train departure.
  *
+ * <p>Goal: To create a class that represents a train departure.
+
  * @author Ingrid Midtmoen Døvre
  * @version 1.0
  * @since 0.1
@@ -80,7 +81,8 @@ public class TrainDeparture {
   /**
    * This method is used to verify input from the user of values that are supposed to be parsed into
    * LocalTime objects. These Strings cannot be null or empty, and they have to be in the format
-   * HH:MM. This method is used to verify the departure time and the current time.
+   * HH:MM. The method initializes the Time class and calls the verifyInputOfTime method to verify
+   * the input.
 
    * @param exampleTime a String variable that is supposed to be verified before being parsed to an
    *                    LocalTime object. The String is supposed to be in the format HH:MM.
@@ -88,13 +90,10 @@ public class TrainDeparture {
    * @throws DateTimeException if the String is before 00:00 or after 23:59.
    *
    */
-  private void verifyInputLocalTime(String exampleTime) throws DateTimeParseException,
-      DateTimeException {
-    LocalTime finalDepartureTime = LocalTime.parse(exampleTime);
-    if (finalDepartureTime.isBefore(LocalTime.parse("00:00"))
-        || finalDepartureTime.isAfter(LocalTime.parse("23:59")) || exampleTime.isEmpty()) {
-      throw new DateTimeException("Invalid input of time: " + exampleTime + " for departure time");
-    }
+  private void verifyInputLocalTime(String exampleTime) throws DateTimeException {
+    Time time = new Time();
+    time.verifyInputOfTime(exampleTime, "departure time");
+
   }
   /**
    * This method is used to verify the input from the user of values not supposed to be null or
@@ -166,17 +165,6 @@ public class TrainDeparture {
   public void setDelay(int delay) {
     verifyInputDelay(delay);
     this.delay = delay;
-  }
-
-  /**
-   * This method is used to get the delay.
-   * The delay is given as an Integer, and it is the count of minutes after the departure time.
-   * If there is no delay, it is set to 0, and is not displayed in the user-interface.
-
-   * @return The delay in amount of minutes.
-   */
-  public int getDelay() {
-    return delay;
   }
 
   /**

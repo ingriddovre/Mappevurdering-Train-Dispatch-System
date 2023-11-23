@@ -3,13 +3,9 @@ package edu.ntnu.stud;
 import java.time.DateTimeException;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.concurrent.atomic.AtomicBoolean;
 // TODO: begrunn i rapporten hvorfor du valgte å bruke ArrayList i denne klassen.
 // TODO: Se over alle javadoc-kommentarer, de er ikke ferdige.
-// todo: i lista som viser togavgangene, har jeg tatt med delay i getDepartureTime, er dette er problem siden det står at man
-//  ikke skal gjøre det, eller er det greit å ha det med?
 
 /**
  * This is the DepartureRegister class. This class is a subclass of the TrainDeparture class.
@@ -17,13 +13,21 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * The DepartureRegister class is used to register new departures, remove departures, set track to
  * departures, set delay to departures, search for departures by train number and destination,
  * and to update the time. The DepartureRegister class is used by the UserInterface class.
- * The constructor initialized a public ArrayList for all the departures.
+ *
+ * <p>The constructor initializes a public ArrayList for all the departures.
  * All new departures are added to this ArrayList, and removed when it has departed.
  * The ArrayList is public because it is used in the UserInterface and Departure Register classes.
+ *
+ * @since 0.2
+ * @author Ingrid Midtmoen Døvre
+ * @version 0.4
  */
+
+// todo: legg til throws ... etter navn på metoder som kaster, som kaster exceptions ut til user
+//  interface klassen.
 public class DepartureRegister {
-  public ArrayList<TrainDeparture> allDepartures;
-  private LocalTime time;
+  private final ArrayList<TrainDeparture> allDepartures;
+  Time time = new Time();
 
   /**
    * The constructor initializes a public ArrayList for all the departures.
@@ -41,10 +45,10 @@ public class DepartureRegister {
   }
 
   /**
-   * This is a method...
+   * This is a method for creating new departures.
    */
   public void newDeparture(String departureTime, String line, int trainNumber, String destination,
-                           int track, int delay) {
+                           int track, int delay) throws IllegalArgumentException {
     TrainDeparture departure = new TrainDeparture(departureTime, line, trainNumber, destination,
             track, delay);
     allDepartures.add(departure);
@@ -52,18 +56,18 @@ public class DepartureRegister {
 
   /**
    * This method is used to check if a departure already exists, after the user has entered a new
-   * departure time and line. If the departure already exists, the user is asked to enter a new
-   * departure time and line in the user-interface class.
-   *
-   * @param departureTime The departure time of the departure.
-   * @param line The line of the departure.
-   * @return an Integer value 1 if the departure exists, or 0 if it does not exist.
+   * train number. If the departure already exists, the user is asked to enter a new, or another,
+   * train number in the user-interface class.
+
+   * @param trainNumber The unique train number of the departure.
+   * @return a boolean value of true if the departure exists, or false, if otherwise.
    */
-  public boolean checkIfDepartureExists(LocalTime departureTime, String line) {
+  public boolean checkIfDepartureExists(int trainNumber) {
     boolean exists = false;
     for (TrainDeparture departure : allDepartures) {
-      if (line.equals(departure.getLine()) && departureTime.equals(departure.getDepartureTime())) {
+      if (trainNumber == departure.getTrainNumber()) {
         exists = true;
+        break;
       }
     }
     return exists;
@@ -76,17 +80,13 @@ public class DepartureRegister {
    * showed to the user via the sortListByTime() and showListOfDepartures() method.
    * @param chosenTime LocalTime object of the chosen time by the user.
    */
-  // todo: er denne metoden samme som skal fjerne avganger fra hovedlisten, eller er denne ment for
-  //  å være en egen metode i menyen?
   public void removeDeparturesBeforeChosenTime(LocalTime chosenTime) {
-    ArrayList<TrainDeparture> departuresBeforeTime = new ArrayList<>();
-    departuresBeforeTime.addAll(allDepartures);
+    ArrayList<TrainDeparture> departuresBeforeTime = new ArrayList<>(allDepartures);
     departuresBeforeTime.forEach(departure -> {
       if (departure.getDepartureTime().isBefore(chosenTime)) {
         departuresBeforeTime.remove(departure);
       }
     });
-    sortListByTime(departuresBeforeTime);
     showListOfDepartures(departuresBeforeTime);
   }
 
@@ -95,7 +95,7 @@ public class DepartureRegister {
    * @param trainNumber The unique train number of the departure.
    * @param track The track number for the departure.
    */
-  public void setTrackToDeparture(int trainNumber, int track) { // nydelig <3 <3 <3
+  public void setTrackToDeparture(int trainNumber, int track) {
     allDepartures.forEach(departure -> {
       if (trainNumber == departure.getTrainNumber()) {
         departure.setTrack(track);
@@ -123,9 +123,9 @@ public class DepartureRegister {
    * list is sorted by time, and shown to the user via the showListOfDepartures() method.
    * @param listOfDepartures An ArrayList of Train departures to be sorted.
    */
-  public void sortListByTime(ArrayList<TrainDeparture> listOfDepartures) {
+  private void sortListByTime(ArrayList<TrainDeparture> listOfDepartures) {
     listOfDepartures.forEach(departure -> {
-      if (getCurrentTime().isAfter(departure.getDepartureTime())) {
+      if (time.getCurrentTime().isAfter(departure.getDepartureTime())) {
         listOfDepartures.remove(departure);
       }
     });
@@ -138,11 +138,12 @@ public class DepartureRegister {
    * @return a String object with all information about the departures, as a list.
    */
   public String showListOfDepartures(ArrayList<TrainDeparture> chosenDepartures) {
+    sortListByTime(chosenDepartures);
     StringBuilder listOfDepartures = new StringBuilder();
     listOfDepartures.append("---------------------------------------------------------------"
         + "-------\n");
     listOfDepartures.append(String.format("| %-10s | %-5s | %-25s | %-5s | %10s |",
-        "Departure Time", "Line", "Destination", "Track", " "));
+        "Departure edu.ntnu.stud.Time", "Line", "Destination", "Track", " "));
     listOfDepartures.append("---------------------------------------------------------------"
         + "-------\n");
     chosenDepartures.forEach(departure -> {
@@ -169,7 +170,6 @@ public class DepartureRegister {
         departureWithTrainNumber.add(departure);
       }
     });
-    sortListByTime(departureWithTrainNumber);
     showListOfDepartures(departureWithTrainNumber);
   }
 
@@ -184,12 +184,30 @@ public class DepartureRegister {
     ArrayList<TrainDeparture> toDestination = new ArrayList<>();
     allDepartures.forEach(departure -> {
       if (destination.equals(departure.getDestination())
-          && getCurrentTime().isBefore(departure.getDepartureTime())) {
+          && time.getCurrentTime().isBefore(departure.getDepartureTime())) {
         toDestination.add(departure);
       }
     });
-    sortListByTime(toDestination);
     showListOfDepartures(toDestination);
+  }
+
+  /**
+   * This method is used to check if any train departures are going to a specific destination.
+   * The method is used in the user interface class, to check if a destination exists in the
+   * register, before continuing with the search.
+
+   * @param chosenDestination The destination input from the user of the wanted departure.
+   * @return boolean value if the destination exists or not.
+   */
+  public boolean checkIfDestinationExists(String chosenDestination) {
+    boolean exists = false;
+    for (TrainDeparture departure : allDepartures) {
+      if (departure.getDestination().equalsIgnoreCase(chosenDestination)) {
+        exists = true;
+        break;
+      }
+    }
+    return exists;
   }
 
   /**
@@ -203,49 +221,12 @@ public class DepartureRegister {
     int minutesLeft = 0;
     for (TrainDeparture departure : allDepartures) {
       if (departure.getDepartureTime().equals(departureTime) && departure.getTrainNumber() == trainNumber) {
-        minutesLeft = getCurrentTime().compareTo(departure.getDepartureTime());
+        minutesLeft = time.getCurrentTime().compareTo(departure.getDepartureTime());
       }
     }
     return minutesLeft;
   }
 
-  /**
-   * This method is used to update the time. The time is updated every minute, and the method
-   * is called from the UserInterface class.
-   * @param newTime The new chosen time.
-   * @throws NullPointerException if the time parameter is null or empty.
-   * @throws DateTimeException if the time is invalid.
-   */
-  public void setCurrentTime(String newTime) {
-    try {
-      this.time = LocalTime.parse(newTime);
-      if (newTime == null || newTime.isEmpty()) {
-        throw new NullPointerException("Time is null or empty");
-      }
-    } catch (NullPointerException | DateTimeException e) {
-      System.out.println("Invalid time : " + newTime + "Please enter a valid time.");
-    }
-  }
-
-  /**
-   * This method is used to get the current time. This method gets the set time from the user, not
-   * the system time.
-   * @return a LocalTime object of the current time selected by the user.
-   * @see LocalTime
-   * @throws NullPointerException if the time is not set.
-   * @throws DateTimeException if the time is invalid.
-   */
-  public LocalTime getCurrentTime() {
-    try {
-      time = LocalTime.parse(String.valueOf(time));
-      if (time == null) {
-        throw new NullPointerException("Invalid time : " + time);
-      }
-    } catch (NullPointerException | DateTimeException e) {
-      System.out.println("Please enter a valid time.");
-    }
-    return time;
-  }
 }
 
 

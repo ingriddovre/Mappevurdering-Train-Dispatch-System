@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="implemented register class methods">
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="finished methods for exceptions + javadoc">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" afterDir="false" />
     </list>
@@ -47,12 +50,13 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Min disk/Programmering 1/Prosjekt mappevurdering/TrainDispatchSystem&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -73,8 +77,37 @@
       <recent name="edu.ntnu.stud" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TrainDepartureTest.departureTimeShouldReturn1pm">
-    <configuration name="TrainDepartureTest.assertThrows (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.TrainDispatchApp">
+    <configuration name="TrainDispatchApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDispatchApp" />
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainDepartureTest$negativeDepartureTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest$negativeDepartureTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainDepartureTest.testConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -84,13 +117,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="METHOD_NAME" value="assertThrows" />
+      <option name="METHOD_NAME" value="testConstructor" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrainDepartureTest.assertThrowsDateTimeException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrainDepartureTest.testConstructor2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -100,13 +133,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="METHOD_NAME" value="assertThrowsDateTimeException" />
+      <option name="METHOD_NAME" value="testConstructor2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrainDepartureTest.assertThrowsDateTimeExceptionAfter2359" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrainDepartureTest.throwsDateTimeExceptionAfter2359" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -116,51 +149,56 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="METHOD_NAME" value="assertThrowsDateTimeExceptionAfter2359" />
+      <option name="METHOD_NAME" value="throwsDateTimeExceptionAfter2359" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrainDepartureTest.departureTimeShouldReturn1pm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrainDispatchSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.stud.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="METHOD_NAME" value="departureTimeShouldReturn1pm" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="TrainDispatchSystem [compile]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compile" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
-    <configuration name="TrainDepartureTest.testDepartureTimeShouldReturn1pm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrainDispatchSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.stud.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="METHOD_NAME" value="testDepartureTimeShouldReturn1pm" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Application.TrainDispatchApp" />
+      <item itemvalue="JUnit.TrainDepartureTest.testConstructor" />
+      <item itemvalue="JUnit.TrainDepartureTest.testConstructor2" />
+      <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests" />
+      <item itemvalue="JUnit.TrainDepartureTest.throwsDateTimeExceptionAfter2359" />
+      <item itemvalue="Maven.TrainDispatchSystem [compile]" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TrainDepartureTest.departureTimeShouldReturn1pm" />
-        <item itemvalue="JUnit.TrainDepartureTest.assertThrowsDateTimeExceptionAfter2359" />
-        <item itemvalue="JUnit.TrainDepartureTest.assertThrows (1)" />
-        <item itemvalue="JUnit.TrainDepartureTest.assertThrowsDateTimeException" />
-        <item itemvalue="JUnit.TrainDepartureTest.testDepartureTimeShouldReturn1pm" />
+        <item itemvalue="Application.TrainDispatchApp" />
+        <item itemvalue="JUnit.TrainDepartureTest.testConstructor2" />
+        <item itemvalue="JUnit.TrainDepartureTest.testConstructor" />
+        <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests" />
+        <item itemvalue="JUnit.TrainDepartureTest.throwsDateTimeExceptionAfter2359" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +224,14 @@
       <workItem from="1699948867859" duration="10614000" />
       <workItem from="1699962050662" duration="20011000" />
       <workItem from="1700322208930" duration="6021000" />
-      <workItem from="1700390789459" duration="17004000" />
+      <workItem from="1700390789459" duration="18405000" />
+      <workItem from="1700465462219" duration="118000" />
+      <workItem from="1700465653439" duration="9965000" />
+      <workItem from="1700486230791" duration="1561000" />
+      <workItem from="1700551180505" duration="12554000" />
+      <workItem from="1700573953244" duration="10747000" />
+      <workItem from="1700732770421" duration="55000" />
+      <workItem from="1700732838893" duration="531000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -251,7 +296,21 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1699984195026</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="added search and show all methods">
+      <option name="closed" value="true" />
+      <created>1700412561756</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1700412561757</updated>
+    </task>
+    <task id="LOCAL−00011" summary="finished methods for exceptions + javadoc">
+      <option name="closed" value="true" />
+      <created>1700582874747</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1700582874747</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +335,17 @@
     <MESSAGE value="rm Time class" />
     <MESSAGE value="started testing" />
     <MESSAGE value="implemented register class methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented register class methods" />
+    <MESSAGE value="added search and show all methods" />
+    <MESSAGE value="finished methods for exceptions + javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished methods for exceptions + javadoc" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_assertThrowsDateTimeExceptionAfter2359.ic" NAME="TrainDepartureTest.assertThrowsDateTimeExceptionAfter2359 Coverage Results" MODIFIED="1700468195052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.ntnu.stud.*</FILTER>
+    </SUITE>
   </component>
 </project>
