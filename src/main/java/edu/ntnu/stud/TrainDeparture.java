@@ -13,7 +13,7 @@ import java.time.format.DateTimeParseException;
  * <p>Goal: To create a class that represents a train departure.
 
  * @author Ingrid Midtmoen Døvre
- * @version 1.1
+ * @version 1.2
  * @since 0.1
  */
 
@@ -216,7 +216,11 @@ public class TrainDeparture {
    * @return The number that represents the track the train will depart from.
    */
   public int getTrack() {
-    return track;
+    if (track == 0) {
+      return -1;
+    } else {
+      return track;
+    }
   }
 
   /**

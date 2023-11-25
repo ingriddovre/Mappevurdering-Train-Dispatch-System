@@ -5,6 +5,11 @@ import java.time.LocalTime;
 
 /**
  * This class represents the Time for the register.
+ * Goal: To get better cohesion in the system, so the classes have a more specific purpose.
+
+ * @since 0.5
+ * @author Ingrid Midtmoen Døvre
+ * @version 0.2
  */
 
 public class Time {

@@ -22,9 +22,6 @@ import java.util.Comparator;
  * @author Ingrid Midtmoen Døvre
  * @version 0.4
  */
-
-// todo: legg til throws ... etter navn på metoder som kaster, som kaster exceptions ut til user
-//  interface klassen.
 public class DepartureRegister {
   private final ArrayList<TrainDeparture> allDepartures;
   Time time = new Time();

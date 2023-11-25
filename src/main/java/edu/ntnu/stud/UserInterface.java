@@ -1,21 +1,16 @@
 package edu.ntnu.stud;
 
+import java.time.DateTimeException;
+import java.time.LocalTime;
+import java.util.Scanner;
 /**
  * This class is the user-interface for the train dispatch application.
  *
  * @since 0.3
  * @author Ingrid Midtmoen Døvre
- * @version 0.4
+ * @version 0.5
  */
 
-import java.time.DateTimeException;
-import java.time.LocalTime;
-import java.util.Scanner;
-
-/**
- * This class is the user-interface for the train dispatch application.
- *
- */
 public class UserInterface {
   DepartureRegister depReg = new DepartureRegister();
   Time time = new Time();
@@ -133,9 +128,9 @@ public class UserInterface {
         System.out.println("Please enter a destination.");
         destination = scanner.nextLine();
       }
-      System.out.println("What track is the departure going from?\nType -1 if you don't know yet.");
+      System.out.println("What track is the departure going from?\nType 0 if you don't know yet.");
       int track = scanner.nextInt();
-      while (track < -1) {
+      while (track < 0) {
         System.out.println("Enter a valid track. If you don't know the track yet, type -1");
         track = scanner.nextInt();
       }
@@ -167,14 +162,15 @@ public class UserInterface {
    * the user is asked to enter a valid train number.
    */
   private void uiSetTrack() {
-    System.out.println("What is the train number for the department?");
+    System.out.println("What is the train number for the departure?");
     int trainNumber = scanner.nextInt();
     while (trainNumber < 0) {
       System.out.println("The train number cannot be negative. Try again.");
       trainNumber = scanner.nextInt();
     }
     if (depReg.checkIfDepartureExists(trainNumber)) {
-      System.out.println("Which track would you like to register for this departure?");
+      System.out.println("Which track would you like to register for this departure? If you don't "
+          + "know yet, type 0.");
       int track = scanner.nextInt();
       while (track < 0) {
         System.out.println("Please enter a valid track.");

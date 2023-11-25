@@ -1,7 +1,6 @@
 package edu.ntnu.stud;
 import java.time.DateTimeException;
 import java.time.LocalTime;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Nested;
@@ -9,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TrainDepartureTest {
   @Nested
-  @DisplayName("Positive tests for the TrainDeparture class.")
+  @DisplayName("Positive tests for the TrainDeparture class constructor and set methods.")
   public class positiveTrainDepartureTests {
     @Test
     @DisplayName("Departure time in constructor should return 13:00 + 15 min delay = 13:15.")
@@ -17,58 +16,189 @@ public class TrainDepartureTest {
       try {
         TrainDeparture train2 = new TrainDeparture("13:00", "L2", 2, "Trondheim", 3, 15);
         assertEquals(LocalTime.of(13, 15), train2.getDepartureTime());
-      } catch (DateTimeException | NullPointerException | IllegalArgumentException e) {
+      } catch (DateTimeException | IllegalArgumentException e) {
+        fail("Should not throw exception" + e.getMessage());
+      }
+    }
+
+    @Test
+    @DisplayName("Positive test to set delay to 15 minutes.")
+    void shouldSetDepartureTimeTo1315() {
+      try {
+        TrainDeparture train2 = new TrainDeparture("13:00", "L2", 2, "Trondheim", 2, 0);
+        train2.setDelay(15);
+        assertEquals(LocalTime.of(13, 15), train2.getDepartureTime());
+      } catch (IllegalArgumentException e) {
+        fail("Should not throw exception" + e.getMessage());
+      }
+    }
+
+    @Test
+    @DisplayName("Positive test for train number in constructor.")
+    void shouldReturnPositiveTrainNumber() {
+      try {
+        TrainDeparture train2 = new TrainDeparture("13:00", "L2", 2, "Trondheim", 2, 0);
+        assertEquals(2, train2.getTrainNumber());
+      } catch (IllegalArgumentException e) {
+        fail("Should not throw exception" + e.getMessage());
+      }
+    }
+
+    @Test
+    @DisplayName("Positive test for getting -1 track value when set to 0.")
+    void shouldReturnNegativeOneTrack() {
+      try {
+        TrainDeparture train5 = new TrainDeparture("12:00", "L2", 2, "Trondheim", 3, 0);
+        train5.setTrack(0);
+        assertEquals(-1, train5.getTrack());
+      } catch (IllegalArgumentException e) {
         fail("Should not throw exception" + e.getMessage());
       }
     }
   }
-  //TrainDeparture train3 = new TrainDeparture("14:00", "L3", -2, "Bergen", 4, 0);
-  //TrainDeparture train4 = new TrainDeparture("15:00", "L4", 4, null, 5, 5);
-  //TrainDeparture train5 = new TrainDeparture("15:00", "L4", 4, "Stavanger", 0, 5);
-  //TrainDeparture train6 = new TrainDeparture("15:00", "L4", 4, "Stavanger", 5, -5);
 
   @Nested
-  @DisplayName("Negative tests for the TrainDeparture class.")
+  @DisplayName("Negative tests for the TrainDeparture class constructor and set methods.")
   public class negativeDepartureTests {
     @Test
-    @DisplayName("Negative test for departure time in the constructor. ")
+    @DisplayName("Negative test for departure time before 00:00.")
     void throwsDateTimeExceptionBefore0000() {
-      try {
-        TrainDeparture train1 = new TrainDeparture("-1:00", "L1", 1, "Oslo", 2, 0);
-        assertThrows(DateTimeException.class, train1::getDepartureTime);
-        fail("Should throw exception, but did not. Test failed.");
-      } catch (DateTimeException e) {
-        assertEquals("Invalid departure time: -1:00. Departure time must be between 00:00 and 23:59, and in the format: HH:MM", e.getMessage());
-      }
+      String departureTime = "-1:00";
+      DateTimeException thrown = assertThrows(
+              DateTimeException.class, () -> new TrainDeparture(departureTime, "L1", 1,
+                      "Valdres", 1, 0),
+              "Expected to throw DateTimeException, but didn't."
+      );
     }
-  }
 
-  @Test
-  void testConstructor2() {
+    @Test
+    @DisplayName("Negative test for departure time after 23:59.")
+    void throwsDateTimeExceptionAfter2359() {
+      String departureTime = "24:00";
+      DateTimeException thrown = assertThrows(
+              DateTimeException.class, () -> new TrainDeparture(departureTime, "L2", 2,
+                      "Lillehammer", 2, 0), "Expected to throw DateTimeException, but didn't."
+      );
+    }
+
+    @Test
+    @DisplayName("Negative test for delay less than 0 in the constructor.")
+    void throwsIllArgExceptionDelayLessThan0() {
+      IllegalArgumentException thrown = assertThrows(
+              IllegalArgumentException.class, () -> new TrainDeparture("14:00", "L3", 3,
+                      "Oslo", 3, -1), "Expected to throw Ill.Arg.Exc. but didn't."
+      );
+    }
+
+    @Test
+    @DisplayName("Negative test to set a negative delay value.")
+    void shouldThrowIllArgExceptionForSetNegativeDelay() {
+      TrainDeparture train3 = new TrainDeparture("12:00", "L2", 2, "Trondheim", 3, 0);
+      IllegalArgumentException thrown = assertThrows(
+              IllegalArgumentException.class, () -> train3.setDelay(-1),
+              "Expected to throw Ill.Arg.Exc. but didn't."
+      );
+    }
+
+    @Test
+    @DisplayName("Negative test for Line in the constructor.")
+    void testConstructorLine() {
       NullPointerException thrown = assertThrows(
-              NullPointerException.class, () -> new TrainDeparture("13:00", "", 2,
+              NullPointerException.class, () -> new TrainDeparture("13:00", null, 2,
                       "Trondheim", 3, 15),
               "Expected NullPointerException to throw, but it didn't");
-  }
+    }
 
-@Test
-void testConstructor() {
-    try {
-      new TrainDeparture("13:00", "", 2, "Trondheim", 3, 15);
-        fail("Should throw exception, but did not. Test failed.");
-    } catch (NullPointerException e) {
-      assertEquals("Invalid string:  for line", e.getMessage());
+    @Test
+    @DisplayName(("Negative test for null destination in constructor."))
+    void shouldThrowNullPointExcForNoDestination() {
+      NullPointerException thrown = assertThrows(
+              NullPointerException.class, () -> new TrainDeparture("13:00", "L2", 2,
+                      null, 2, 0),
+              "Expected NullPointerException to throw, but it didn't");
+    }
+
+    @Test
+    @DisplayName("Negative test for initializing negative track value in constructor.")
+    void shouldThrowIllArgExcForNegativeValues() {
+      IllegalArgumentException thrown = assertThrows(
+              IllegalArgumentException.class, () -> new TrainDeparture("10:00", "L4", 4, "Tromsø", 4, -1),
+              "Expected to throw Ill.Arg.Exception but didn't.");
+    }
+
+    @Test
+    @DisplayName("Negative test for setting negative track value.")
+    void shouldThrowExceptionForSetNegativeTrack() {
+      TrainDeparture train4 = new TrainDeparture("12:00", "L2", 2, "Trondheim", 3, 0);
+      IllegalArgumentException thrown = assertThrows(
+              IllegalArgumentException.class, () -> train4.setTrack(-1),
+              "Expected to throw Ill.Arg.Exc. but didn't."
+      );
+    }
+
+    @Test
+    @DisplayName("Positive test for getting -1 track when initialised as 0 in constructor.")
+    void shouldReturnMinusOneTrack() {
+      try {
+        TrainDeparture train5 = new TrainDeparture("12:00", "L5", 5, "Trondheim", 0, 0);
+        assertEquals(-1, train5.getTrack());
+      } catch (IllegalArgumentException e) {
+        fail("should not throw exception" + e.getMessage());
+      }
+    }
+
+    @Test
+    void testToString1() {
     }
   }
-  @Test
-  void testSetDelay() {
+
+  @Nested
+  @DisplayName("Positive tests for verify methods.")
+  public class positiveVerifyMethodTests {
+    @Test
+    @DisplayName("Positive test for verify Departure time method.")
+    void shouldNotThrowExceptionFor0000() {
+// skal jeg lage tester for denne metoden at all siden jeg egt heller burde teste den i Time klassen
+    }
+
+    @Test
+    @DisplayName("Positive test for verify Departure time method.")
+    void shouldNotThrowExceptionFor2359() {
+
+    }
+
+    @Test
+    @DisplayName("Positive test for verify String method.")
+    void shouldNotThrowExceptionForStringNotNull() {
+
+    }
+
+    @Test
+    @DisplayName("Positive test for verify Integer method.")
+    void shouldNotThrowExceptionForPositiveInteger() {
+
+    }
+
+    @Test
+    @DisplayName("Positive test for verify delay method between 0 and 59")
+    void shouldNotThrowExcForPosDelayLessThan60() {
+      // skal jeg teste dise, blir det ikke d samme som å teste de samme metodene igjen
+    }
   }
 
-  @Test
-  void testSetTrack() {
-  }
+  @Nested
+  @DisplayName("Negative tests for verify methods.")
+  public class negativeVerifyMethodTests {
+    @Test
+    @DisplayName("Negative test for verify Departure time less than 00:00.")
+    void shouldThrowExceptionForLessThan0000() {
 
-  @Test
-  void testToString1() {
+    }
+
+    @Test
+    @DisplayName("Negative test for verify Departure time more than 23:59.")
+    void shouldThrowDateTimeExcForMoreThan2359() {
+
+    }
   }
 }
