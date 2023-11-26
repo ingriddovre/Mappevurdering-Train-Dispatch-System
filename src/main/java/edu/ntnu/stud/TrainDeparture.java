@@ -13,7 +13,7 @@ import java.time.format.DateTimeParseException;
  * <p>Goal: To create a class that represents a train departure.
 
  * @author Ingrid Midtmoen Døvre
- * @version 1.2
+ * @version 1.3
  * @since 0.1
  */
 
@@ -93,6 +93,7 @@ public class TrainDeparture {
   private void verifyInputLocalTime(String exampleTime) throws DateTimeException {
     Time time = new Time();
     time.verifyInputOfTime(exampleTime, "departure time");
+    time.inputIsAfterCurrentTime(exampleTime);
   }
   /**
    * This method is used to verify the input from the user of values not supposed to be null or
@@ -252,11 +253,11 @@ public class TrainDeparture {
   @Override
   public String toString() {
     return "Train departure: "
-            + "Departure time: " + getDepartureTime()
-            + ", Line " + line
-            + ", trainNumber: " + trainNumber
-            + ", destination: " + destination
-            + ", track " + track + ","
-            + " " + delay + " min delay";
+            + getDepartureTime()
+            + ", " + line
+            + ", train number: " + trainNumber
+            + ", " + destination
+            + ", track: " + track + ", "
+            + delay + " min delay";
   }
 }

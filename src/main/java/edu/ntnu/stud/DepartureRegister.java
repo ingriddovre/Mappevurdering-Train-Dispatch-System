@@ -4,6 +4,8 @@ import java.time.DateTimeException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Comparator;
+
+import static java.time.temporal.ChronoUnit.MINUTES;
 // TODO: begrunn i rapporten hvorfor du valgte å bruke ArrayList i denne klassen.
 // TODO: Se over alle javadoc-kommentarer, de er ikke ferdige.
 
@@ -20,7 +22,7 @@ import java.util.Comparator;
  *
  * @since 0.2
  * @author Ingrid Midtmoen Døvre
- * @version 0.4
+ * @version 0.5
  */
 public class DepartureRegister {
   private final ArrayList<TrainDeparture> allDepartures;
@@ -242,15 +244,21 @@ public class DepartureRegister {
    * @param trainNumber the train number of the departure.
    * @return an Integer value of the minutes left before departure.
    */
-  private int minutesUntilDeparture(LocalTime departureTime, int trainNumber) {
-    int minutesLeft = 0;
+  private double minutesUntilDeparture(LocalTime departureTime, int trainNumber) {
+    double timeLeft;
+    double hoursAndMinutes = 0;
     for (TrainDeparture departure : allDepartures) {
       if (departure.getDepartureTime().equals(departureTime) && departure.getTrainNumber()
           == trainNumber) {
-        minutesLeft = time.getCurrentTime().compareTo(departure.getDepartureTime());
+        timeLeft = (int) MINUTES.between(time.getCurrentTime(), departureTime);
+        if (timeLeft < 60) {
+          hoursAndMinutes = timeLeft;
+        } else if (timeLeft > 60) {
+          hoursAndMinutes = ((timeLeft / 60) * 100) + (timeLeft % 60);
+        }
       }
     }
-    return minutesLeft;
+    return (hoursAndMinutes); // todo: fiks denne metoden please
   }
 }
 

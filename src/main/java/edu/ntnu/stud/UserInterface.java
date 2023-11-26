@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @since 0.3
  * @author Ingrid Midtmoen Døvre
- * @version 0.5
+ * @version 0.6
  */
 
 public class UserInterface {
@@ -109,6 +109,7 @@ public class UserInterface {
       while (!validInput) {
         try {
           time.verifyInputOfTime(departureTime, "departure time");
+          time.inputIsAfterCurrentTime(departureTime);
           validInput = true;
         } catch (DateTimeException e) {
           System.out.println("Please enter the time in the correct format (HH:MM).");

@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="new setNewDepartureTime methods">
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="full tests for Time class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TrainDepartureTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/DepartureRegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/DepartureRegisterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TimeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/TimeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -75,8 +76,8 @@
       <recent name="edu.ntnu.stud" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TrainDepartureTest$positiveVerifyMethodTests.shouldNotThrowExcForPosDelayLessThan60">
-    <configuration name="TrainDepartureTest$negativeDepartureTests.shouldReturnMinusOneTrack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenInputIsBeforeCurrentTime">
+    <configuration name="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenInputIsBeforeCurrentTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -84,15 +85,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest$negativeDepartureTests" />
-      <option name="METHOD_NAME" value="shouldReturnMinusOneTrack" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TimeTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TimeTest$negativeTestsForSettingTime" />
+      <option name="METHOD_NAME" value="shouldThrowDateTimeExcWhenInputIsBeforeCurrentTime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrainDepartureTest$negativeDepartureTests.shouldReturnNegativeOneTrack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsBeforeCurrentTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -100,15 +101,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest$negativeDepartureTests" />
-      <option name="METHOD_NAME" value="shouldReturnNegativeOneTrack" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TimeTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TimeTest$negativeTestsForSettingTime" />
+      <option name="METHOD_NAME" value="shouldThrowDateTimeExcWhenTimeIsBeforeCurrentTime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrainDepartureTest$negativeDepartureTests.shouldThrowExceptionForSetNegativeTrack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -116,15 +117,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest$negativeDepartureTests" />
-      <option name="METHOD_NAME" value="shouldThrowExceptionForSetNegativeTrack" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TimeTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TimeTest$negativeTestsForSettingTime" />
+      <option name="METHOD_NAME" value="shouldThrowDateTimeExcWhenTimeIsEmpty" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrainDepartureTest$positiveTrainDepartureTests.shouldThrowNullPointExcForNoDestination" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsNotReal2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -132,15 +133,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest$positiveTrainDepartureTests" />
-      <option name="METHOD_NAME" value="shouldThrowNullPointExcForNoDestination" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TimeTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TimeTest$negativeTestsForSettingTime" />
+      <option name="METHOD_NAME" value="shouldThrowDateTimeExcWhenTimeIsNotReal2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrainDepartureTest$positiveVerifyMethodTests.shouldNotThrowExcForPosDelayLessThan60" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TimeTest$positiveTestsForTimeClassMethods.shouldReturnValidTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -148,9 +149,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TrainDepartureTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDepartureTest$positiveVerifyMethodTests" />
-      <option name="METHOD_NAME" value="shouldNotThrowExcForPosDelayLessThan60" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud.TimeTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TimeTest$positiveTestsForTimeClassMethods" />
+      <option name="METHOD_NAME" value="shouldReturnValidTime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -186,20 +187,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.shouldReturnMinusOneTrack" />
-      <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.shouldReturnNegativeOneTrack" />
-      <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.shouldThrowExceptionForSetNegativeTrack" />
-      <item itemvalue="JUnit.TrainDepartureTest$positiveTrainDepartureTests.shouldThrowNullPointExcForNoDestination" />
-      <item itemvalue="JUnit.TrainDepartureTest$positiveVerifyMethodTests.shouldNotThrowExcForPosDelayLessThan60" />
+      <item itemvalue="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenInputIsBeforeCurrentTime" />
+      <item itemvalue="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsBeforeCurrentTime" />
+      <item itemvalue="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsEmpty" />
+      <item itemvalue="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsNotReal2" />
+      <item itemvalue="JUnit.TimeTest$positiveTestsForTimeClassMethods.shouldReturnValidTime" />
       <item itemvalue="Maven.TrainDispatchSystem [compile]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TrainDepartureTest$positiveVerifyMethodTests.shouldNotThrowExcForPosDelayLessThan60" />
-        <item itemvalue="JUnit.TrainDepartureTest$positiveTrainDepartureTests.shouldThrowNullPointExcForNoDestination" />
-        <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.shouldReturnMinusOneTrack" />
-        <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.shouldReturnNegativeOneTrack" />
-        <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.shouldThrowExceptionForSetNegativeTrack" />
+        <item itemvalue="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenInputIsBeforeCurrentTime" />
+        <item itemvalue="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsBeforeCurrentTime" />
+        <item itemvalue="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsEmpty" />
+        <item itemvalue="JUnit.TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsNotReal2" />
+        <item itemvalue="JUnit.TimeTest$positiveTestsForTimeClassMethods.shouldReturnValidTime" />
       </list>
     </recent_temporary>
   </component>
@@ -235,6 +236,9 @@
       <workItem from="1700732838893" duration="12519000" />
       <workItem from="1700763096881" duration="1003000" />
       <workItem from="1700912285808" duration="1785000" />
+      <workItem from="1700939922927" duration="97000" />
+      <workItem from="1700950518803" duration="3183000" />
+      <workItem from="1701002436355" duration="10450000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -327,7 +331,28 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1700749113301</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="test methods for TrainDeparture class">
+      <option name="closed" value="true" />
+      <created>1700939298527</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1700939298527</updated>
+    </task>
+    <task id="LOCAL−00015" summary="full tests for TrainDeparture class">
+      <option name="closed" value="true" />
+      <created>1701005578352</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1701005578352</updated>
+    </task>
+    <task id="LOCAL−00016" summary="full tests for Time class">
+      <option name="closed" value="true" />
+      <created>1701013045712</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1701013045712</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,20 +381,38 @@
     <MESSAGE value="finished methods for exceptions + javadoc" />
     <MESSAGE value="implemented new Time class" />
     <MESSAGE value="new setNewDepartureTime methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="new setNewDepartureTime methods" />
+    <MESSAGE value="test methods for TrainDeparture class" />
+    <MESSAGE value="full tests for TrainDeparture class" />
+    <MESSAGE value="full tests for Time class" />
+    <option name="LAST_COMMIT_MESSAGE" value="full tests for Time class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest.ic" NAME="TrainDepartureTest Coverage Results" MODIFIED="1700938521584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest.ic" NAME="TrainDepartureTest Coverage Results" MODIFIED="1701005152483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.ntnu.stud.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowDateTimeExcWhenTimeIsNotReal.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsNotReal Coverage Results" MODIFIED="1701007738993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.ntnu.stud.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowDateTimeExcWhenTimeIsNotReal2.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsNotReal2 Coverage Results" MODIFIED="1701012926374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.ntnu.stud.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest.ic" NAME="TimeTest Coverage Results" MODIFIED="1701012783788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_assertThrowsDateTimeExceptionAfter2359.ic" NAME="TrainDepartureTest.assertThrowsDateTimeExceptionAfter2359 Coverage Results" MODIFIED="1700468195052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_positiveTrainDepartureTests_shouldSetNewDepartureTimeTo1400.ic" NAME="TrainDepartureTest$positiveTrainDepartureTests.shouldSetNewDepartureTimeTo1400 Coverage Results" MODIFIED="1701003481601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.ntnu.stud.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_positiveVerifyMethodTests_shouldNotThrowExcForPosDelayLessThan60.ic" NAME="TrainDepartureTest$positiveVerifyMethodTests.shouldNotThrowExcForPosDelayLessThan60 Coverage Results" MODIFIED="1700938598705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.ntnu.stud.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowExceptionWhenTimeIsAfter2359.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowExceptionWhenTimeIsAfter2359 Coverage Results" MODIFIED="1701007437574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
   </component>
