@@ -57,9 +57,26 @@ public class Time {
    */
   public void verifyInputOfTime(String exampleTime, String parameterName) throws DateTimeException {
     LocalTime inputTime = LocalTime.parse(exampleTime);
-    if (inputTime.isBefore(LocalTime.parse("00:00"))
-        || inputTime.isAfter(LocalTime.parse("23:59")) || exampleTime.isEmpty()) {
+    if (inputTime.isBefore(LocalTime.parse("00:00")) || inputTime.isAfter(LocalTime.parse("23:59"))
+        || exampleTime.isEmpty()) {
       throw new DateTimeException("Invalid input: " + exampleTime + " for the " + parameterName);
+    }
+  }
+
+  /**
+   * This method is used to verify the input of the departure time. It checks if the input of time
+   * is before the current set time of the system. This method is needed to check the departure time inputs,
+   * outside the verifyInputOfTime method, because we also need to check if the input of current time is
+   * correct. If we use the verify method to check if the input is before the current time, we wil get a null
+   * pointer exception because the current time is not set yet.
+
+   * @param exampleTime The time input from the user in the format HH:MM.
+   * @throws DateTimeException If the exampleTime is before the current set time.
+   */
+  public void inputIsAfterCurrentTime(String exampleTime) throws DateTimeException {
+    LocalTime inputTime = LocalTime.parse(exampleTime);
+    if (inputTime.isBefore(currentTime)) {
+      throw new DateTimeException("Invalid input: " + exampleTime + " for the time");
     }
   }
 }
