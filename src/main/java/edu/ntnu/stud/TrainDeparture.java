@@ -13,7 +13,7 @@ import java.time.format.DateTimeParseException;
  * <p>Goal: To create a class that represents a train departure.
 
  * @author Ingrid Midtmoen Døvre
- * @version 1.3
+ * @version 1.4
  * @since 0.1
  */
 
@@ -93,7 +93,6 @@ public class TrainDeparture {
   private void verifyInputLocalTime(String exampleTime) throws DateTimeException {
     Time time = new Time();
     time.verifyInputOfTime(exampleTime, "departure time");
-    time.inputIsAfterCurrentTime(exampleTime);
   }
   /**
    * This method is used to verify the input from the user of values not supposed to be null or
@@ -170,12 +169,12 @@ public class TrainDeparture {
    * If there is no delay, the delay is set to 0.
    * The delay is given as an Integer as a count of minutes after the departure.
 
-   * @param delay Amount of minutes after the departure time.
+   * @param exampleDelay Amount of minutes after the departure time.
    * @throws IllegalArgumentException if the delay is not between 0 and 59.
    */
-  public void setDelay(int delay) throws IllegalArgumentException {
-    verifyInputDelay(delay);
-    this.delay = delay;
+  public void setDelay(int exampleDelay) throws IllegalArgumentException {
+    verifyInputDelay(exampleDelay);
+    this.delay = exampleDelay;
   }
 
   /**
@@ -228,15 +227,15 @@ public class TrainDeparture {
    * This method is used to set the track of the departure.
    * The track is given as an Integer. For no track, the track is set to -1.
 
-   * @param track The track the train will depart from.
+   * @param exampleTrack The track the train will depart from.
    * @throws IllegalArgumentException if the track is less than -1.
    */
-  public void setTrack(int track) throws IllegalArgumentException {
-    verifyInputIntegers(track, "track");
-    if (track == 0) {
+  public void setTrack(int exampleTrack) throws IllegalArgumentException {
+    verifyInputIntegers(exampleTrack, "track");
+    if (exampleTrack == 0) {
       this.track = -1;
     } else {
-      this.track = track;
+      this.track = exampleTrack;
     }
   }
 

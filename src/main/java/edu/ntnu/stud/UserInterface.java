@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @since 0.3
  * @author Ingrid Midtmoen Døvre
- * @version 0.6
+ * @version 0.7
  */
 
 public class UserInterface {
@@ -149,8 +149,7 @@ public class UserInterface {
             delay);
         System.out.println("The departure has been registered.");
       } catch (IllegalArgumentException e) {
-        System.out.println("Invalid input for the department. Please try again.");
-        uiNewDeparture();
+        System.out.println("Invalid input for the departure. Please try again.");
       }
     }
   }

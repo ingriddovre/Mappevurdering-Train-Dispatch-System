@@ -45,7 +45,7 @@ public class TrainDepartureTest {
       }
     }
     @Test
-    @DisplayName("Positive test to set delay to 59 minutes.")
+    @DisplayName("Positive test to set delay to 15 minutes.")
     void shouldSetDepartureTimeTo1315() {
       try {
         TrainDeparture train2 = new TrainDeparture("13:00", "L2", 2, "Trondheim",
@@ -94,7 +94,7 @@ public class TrainDepartureTest {
     void shouldSetNewTrackValueTo5() {
       try {
         TrainDeparture train6 = new TrainDeparture("12:00", "L6", 6, "Bodø",
-                6, 10);
+                6, 0);
         train6.setTrack(5);
       } catch (IllegalArgumentException e) {
         fail("Should not throw exception" + e.getMessage());
@@ -164,12 +164,11 @@ public class TrainDepartureTest {
 
     @Test
     @DisplayName("Negative test for initializing negative track value in constructor.")
-    void shouldThrowIllArgExcForNegativeValues() {
+    void shouldThrowIllArgExcForNegativeTrackValues() {
       IllegalArgumentException thrown = assertThrows(
-              IllegalArgumentException.class, () -> new TrainDeparture("10:00", "L4", 4, "Tromsø", 4, -1),
+              IllegalArgumentException.class, () -> new TrainDeparture("10:00", "L4", 4, "Tromsø", -4, 0),
               "Expected to throw Ill.Arg.Exception but didn't.");
     }
-
     @Test
     @DisplayName("Negative test for setting negative track value.")
     void shouldThrowExceptionForSetNegativeTrack() {
