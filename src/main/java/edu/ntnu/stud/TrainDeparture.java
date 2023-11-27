@@ -143,9 +143,9 @@ public class TrainDeparture {
    * This method is used to get the departure time. The departure time is given as a String
    * in the format HH:MM. The method returns an object of the type LocalTime. If the departure
    * has a delay, the delay is added to the departure time. Therefore, the departure time is not
-   * final. It uses the LocalTime class from the java.time. package to summarize the departure time
-   * and the delay correctly. For example, if the departure time is 11:55, and the delay is 10
-   * minutes, the departure time will be 12:05, and not 11:65.
+   * final.<p>It uses the LocalTime class from the java.time. package to summarize the departure
+   * time and the delay correctly. For example, if the departure time is 11:55, and the delay is 10
+   * minutes, the departure time will be 12:05, and not 11:65.</p>
 
    * @return summarized departure time and delay in HH:MM format.
    */

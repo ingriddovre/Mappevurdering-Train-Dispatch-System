@@ -25,7 +25,7 @@ import static java.time.temporal.ChronoUnit.MINUTES;
  * @version 0.5
  */
 public class DepartureRegister {
-  private final ArrayList<TrainDeparture> allDepartures;
+  private ArrayList<TrainDeparture> allDepartures;
   Time time = new Time();
 
   /**
@@ -75,15 +75,17 @@ public class DepartureRegister {
   }
 
   /**
-   * This method is used to show departures that left before a chosen time. It initializes a new
-   * ArrayList of all departures registered, and then checks if the departure time is before the
-   * chosen time. If it is, the departure is removed from the new list. Then the list is sorted, and
+   * This method is used to show departures that leaves after a chosen time. It initializes a new
+   * ArrayList, and then checks if the departure time of departures in allDepartures is before the
+   * chosen time. If it is, the departure is added to the new list. Then the list is sorted, and
    * showed to the user via the sortListByTime() and showListOfDepartures() method.
 
    * @param chosenTime LocalTime object of the chosen time by the user.
+   * @return a String object with all information about the departures leaving after the
+   *      chosenTime, as a list.
    */
   public String removeDeparturesBeforeChosenTime(LocalTime chosenTime) {
-    ArrayList<TrainDeparture> departuresBeforeTime = new ArrayList<>(allDepartures);
+    ArrayList<TrainDeparture> departuresBeforeTime = new ArrayList<>();
     allDepartures.forEach(departure -> {
       if (departure.getDepartureTime().isAfter(chosenTime)) {
         departuresBeforeTime.add(departure);
@@ -145,7 +147,7 @@ public class DepartureRegister {
 
    * @param listOfDepartures An ArrayList of Train departures to be sorted.
    */
-  private void sortListByTime(ArrayList<TrainDeparture> listOfDepartures) {
+  protected void sortListByTime(ArrayList<TrainDeparture> listOfDepartures) {
     listOfDepartures.forEach(departure -> {
       if (time.getCurrentTime().isAfter(departure.getDepartureTime())) {
         listOfDepartures.remove(departure);
