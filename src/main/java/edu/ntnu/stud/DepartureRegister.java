@@ -1,5 +1,4 @@
 package edu.ntnu.stud;
-
 import java.time.DateTimeException;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -16,9 +15,10 @@ import static java.time.temporal.ChronoUnit.MINUTES;
  * departures, set delay to departures, search for departures by train number and destination,
  * and to update the time. The DepartureRegister class is used by the UserInterface class.
  *
- * <p>The constructor initializes a public ArrayList for all the departures.
- * All new departures are added to this ArrayList, and removed when it has departed.
- * The ArrayList is public because it is used in the UserInterface and Departure Register classes.
+ * <p>The constructor initializes a private ArrayList for all the departures.
+ * All new departures are added to this ArrayList.
+ * The ArrayList is private, but has a public accessor method because it is used in the
+ * UserInterface class.
  *
  * @since 0.2
  * @author Ingrid Midtmoen Døvre
@@ -48,7 +48,8 @@ public class DepartureRegister {
    * This is a method for creating new departures.
    */
   public void newDeparture(String departureTime, String line, int trainNumber, String destination,
-                           int track, int delay) throws IllegalArgumentException {
+                           int track, int delay) throws DateTimeException, NullPointerException,
+                            IllegalArgumentException {
     TrainDeparture departure = new TrainDeparture(departureTime, line, trainNumber, destination,
             track, delay);
     allDepartures.add(departure);
@@ -83,9 +84,9 @@ public class DepartureRegister {
    */
   public String removeDeparturesBeforeChosenTime(LocalTime chosenTime) {
     ArrayList<TrainDeparture> departuresBeforeTime = new ArrayList<>(allDepartures);
-    departuresBeforeTime.forEach(departure -> {
-      if (departure.getDepartureTime().isBefore(chosenTime)) {
-        departuresBeforeTime.remove(departure);
+    allDepartures.forEach(departure -> {
+      if (departure.getDepartureTime().isAfter(chosenTime)) {
+        departuresBeforeTime.add(departure);
       }
     });
     return showListOfDepartures(departuresBeforeTime);
