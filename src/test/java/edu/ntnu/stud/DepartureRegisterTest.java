@@ -8,7 +8,7 @@ import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 public class DepartureRegisterTest {
-  @Nested
+  @Nested // ta bort denne klassen eller flytt den inn slik at den ikke glender for alle men bare den flrste metoden
   @DisplayName("Registering a new departure method tests.")
   class RegisterNewDeparture {
     @Nested
@@ -271,7 +271,7 @@ public class DepartureRegisterTest {
         assertEquals(LocalTime.parse("12:00"), depReg.getAllDepartures().get(0).getDepartureTime());
       }
       @Test
-      @DisplayName("Positive test to not change list when it is already sorted correctly.")
+      @DisplayName("Negative test to not change list when it is already sorted correctly.")
       void shouldNotChangeTheOrderOfTheList() {
         Time time = new Time();
         time.setCurrentTime("10:00");
@@ -284,15 +284,42 @@ public class DepartureRegisterTest {
         assertEquals(LocalTime.parse("13:00"), depReg.getAllDepartures().get(1).getDepartureTime());
       }
       @Test
-      @DisplayName("Negative test to sort an empty list.")
-      void shouldNotSortAnEmptyList() {}
+      @DisplayName("Positive test to not sort an empty list.")
+      void shouldNotSortAnEmptyList() {
+        DepartureRegister depReg = new DepartureRegister();
+        depReg.sortListByTime(depReg.getAllDepartures());
+        assertEquals(0, depReg.getAllDepartures().size());
+      }
     }
 
     @Nested
     @DisplayName("Tests for show list of departures method.")
     class showListOfDeparturesTests {
-
+      @Test // todo: husk å endre denne expectede outputen etter du har fiksa metoden for minutter igjen
+      @DisplayName("Positive test for show list of departures.")
+      void shouldShowListOfAllDepartures() {
+        Time time = new Time();
+        time.setCurrentTime("10:00");
+        DepartureRegister depReg = new DepartureRegister();
+        depReg.newDeparture("12:00", "L1", 1, "Oslo", 1, 0);
+        depReg.newDeparture("13:00", "L2", 2, "Oslo", 2, 5);
+        depReg.newDeparture("14:00", "L3", 3, "Oslo", 3, 10);
+        assertEquals("----------------------------------------------------------------------------------------\n" +
+            "| Train number  | Departure time | Line  |          Destination | Track | minutes left |\n" +
+            "----------------------------------------------------------------------------------------\n" +
+            "|             1 |          12:00 |    L1 |                 Oslo |     1 |        200.0 |\n" +
+            "|             2 |          13:05 |    L2 |                 Oslo |     2 | 313.33333333333337 |\n" +
+            "|             3 |          14:10 |    L3 |                 Oslo |     3 | 426.6666666666667 |\n" +
+            "----------------------------------------------------------------------------------------\n",
+            depReg.showListOfDepartures(depReg.getAllDepartures()));
+      }
     }
+
+  @Nested
+  @DisplayName("Tests for get all departures method.")
+  class getAllDeparturesListTests {
+// bruk assertArrayEquals eln
+  }
 
     @Nested
     @DisplayName("Tests for search by train number method.")

@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="updated method to avoid conc.mod.Exc.">
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="in process of finishing tests for DepartureRegister">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/DepartureRegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/DepartureRegisterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,8 +72,8 @@
       <recent name="edu.ntnu.stud" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldNotChangeTheOrderOfTheList">
-    <configuration name="DepartureRegisterTest$setNewDepartureTimeTests.shouldNotSetNewDepartureTimeToAnyDepartures" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DepartureRegisterTest$showListOfDeparturesTests.shouldShowListOfAllDepartures">
+    <configuration name="DepartureRegisterTest$showListOfDeparturesTests.shouldShowListOfAllDepartures" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -85,14 +82,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.stud.DepartureRegisterTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.DepartureRegisterTest$setNewDepartureTimeTests" />
-      <option name="METHOD_NAME" value="shouldNotSetNewDepartureTimeToAnyDepartures" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.DepartureRegisterTest$showListOfDeparturesTests" />
+      <option name="METHOD_NAME" value="shouldShowListOfAllDepartures" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DepartureRegisterTest$setNewDepartureTimeTests.shouldSetTheSameTimeToExistingDeparture" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DepartureRegisterTest$sortListByTimeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -101,25 +98,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.stud.DepartureRegisterTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.DepartureRegisterTest$setNewDepartureTimeTests" />
-      <option name="METHOD_NAME" value="shouldSetTheSameTimeToExistingDeparture" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DepartureRegisterTest$setNewDepartureTimeTests.shouldThrowDateTimeExceptionWhenSetToInvalidTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrainDispatchSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.stud.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud.DepartureRegisterTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.DepartureRegisterTest$setNewDepartureTimeTests" />
-      <option name="METHOD_NAME" value="shouldThrowDateTimeExceptionWhenSetToInvalidTime" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.DepartureRegisterTest$sortListByTimeTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -140,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DepartureRegisterTest$sortListByTimeTests.shouldSortListByTimeFromEarlyToLatest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DepartureRegisterTest$sortListByTimeTests.shouldNotSortAnEmptyList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
         <pattern>
@@ -150,7 +130,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.stud.DepartureRegisterTest" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.DepartureRegisterTest$sortListByTimeTests" />
-      <option name="METHOD_NAME" value="shouldSortListByTimeFromEarlyToLatest" />
+      <option name="METHOD_NAME" value="shouldNotSortAnEmptyList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DepartureRegisterTest$sortListByTimeTests.shouldThrowExcWhenListIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.stud.DepartureRegisterTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.DepartureRegisterTest$sortListByTimeTests" />
+      <option name="METHOD_NAME" value="shouldThrowExcWhenListIsEmpty" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -186,20 +182,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.DepartureRegisterTest$setNewDepartureTimeTests.shouldNotSetNewDepartureTimeToAnyDepartures" />
-      <item itemvalue="JUnit.DepartureRegisterTest$setNewDepartureTimeTests.shouldSetTheSameTimeToExistingDeparture" />
-      <item itemvalue="JUnit.DepartureRegisterTest$setNewDepartureTimeTests.shouldThrowDateTimeExceptionWhenSetToInvalidTime" />
+      <item itemvalue="JUnit.DepartureRegisterTest$showListOfDeparturesTests.shouldShowListOfAllDepartures" />
+      <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests" />
       <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldNotChangeTheOrderOfTheList" />
-      <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldSortListByTimeFromEarlyToLatest" />
+      <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldNotSortAnEmptyList" />
+      <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldThrowExcWhenListIsEmpty" />
       <item itemvalue="Maven.TrainDispatchSystem [compile]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DepartureRegisterTest$showListOfDeparturesTests.shouldShowListOfAllDepartures" />
+        <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests" />
+        <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldThrowExcWhenListIsEmpty" />
+        <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldNotSortAnEmptyList" />
         <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldNotChangeTheOrderOfTheList" />
-        <item itemvalue="JUnit.DepartureRegisterTest$sortListByTimeTests.shouldSortListByTimeFromEarlyToLatest" />
-        <item itemvalue="JUnit.DepartureRegisterTest$setNewDepartureTimeTests.shouldNotSetNewDepartureTimeToAnyDepartures" />
-        <item itemvalue="JUnit.DepartureRegisterTest$setNewDepartureTimeTests.shouldThrowDateTimeExceptionWhenSetToInvalidTime" />
-        <item itemvalue="JUnit.DepartureRegisterTest$setNewDepartureTimeTests.shouldSetTheSameTimeToExistingDeparture" />
       </list>
     </recent_temporary>
   </component>
@@ -237,7 +233,7 @@
       <workItem from="1700912285808" duration="1785000" />
       <workItem from="1700939922927" duration="97000" />
       <workItem from="1700950518803" duration="3183000" />
-      <workItem from="1701002436355" duration="31151000" />
+      <workItem from="1701002436355" duration="36882000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -386,7 +382,14 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1701097235418</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="in process of finishing tests for DepartureRegister">
+      <option name="closed" value="true" />
+      <created>1701102561396</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1701102561396</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +426,8 @@
     <MESSAGE value="new tests for time class" />
     <MESSAGE value="updated fail in code for verification of time" />
     <MESSAGE value="updated method to avoid conc.mod.Exc." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated method to avoid conc.mod.Exc." />
+    <MESSAGE value="in process of finishing tests for DepartureRegister" />
+    <option name="LAST_COMMIT_MESSAGE" value="in process of finishing tests for DepartureRegister" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
