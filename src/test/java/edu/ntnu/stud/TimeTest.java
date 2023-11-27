@@ -10,14 +10,35 @@ public class TimeTest {
   @Nested
   @DisplayName("Positive tests for Time class methods")
   class positiveTestsForTimeClassMethods {
-    @Test
-    @DisplayName("Positive test for setting time between 00:00 and 23:59")
-    void setCurrentTime() {
-      try {
-        Time time = new Time();
-        time.setCurrentTime("00:00");
-      } catch (DateTimeException e) {
-        fail("Test failed, should not thrown exception.");
+    @Nested
+    @DisplayName("Positive test for assuring extreme values are set correctly (00:00, 12:00, 23:59)")
+    class positiveTestsForSetCurrentTimeMethod {
+      @Test
+      void setCurrentTimeTo0000() {
+        try {
+          Time time = new Time();
+          time.setCurrentTime("00:00");
+        } catch (DateTimeException e) {
+          fail("Test failed, should not thrown exception.");
+        }
+      }
+      @Test
+      void setCurrentTimeTo1200() {
+        try {
+          Time time = new Time();
+          time.setCurrentTime("12:00");
+        } catch (DateTimeException e) {
+          fail("Test failed, should not thrown exception.");
+        }
+      }
+      @Test
+      void setCurrentTimeTo2359() {
+        try {
+          Time time = new Time();
+          time.setCurrentTime("23:59");
+        } catch (DateTimeException e) {
+          fail("Test failed, should not thrown exception.");
+        }
       }
     }
     @Test
@@ -31,9 +52,8 @@ public class TimeTest {
         fail("Test failed, should not have thrown exception.");
       }
     }
-
     @Test
-    @DisplayName("Positive test for verifying input of time")
+    @DisplayName("Positive test for verifying input of earliest time 00:00")
     void shouldNotThrowExceptionWhenTimeIs0000() {
       try {
         Time time = new Time();
@@ -43,7 +63,7 @@ public class TimeTest {
       }
     }
     @Test
-    @DisplayName("Positive test for verifying input of time")
+    @DisplayName("Positive test for verifying input of latest time 23:59.")
     void shouldNotThrowExceptionWhenTimeIs2359() {
       try {
         Time time = new Time();
@@ -52,10 +72,22 @@ public class TimeTest {
         fail("Test failed, should not thrown exception.");
       }
     }
+    @Test
+    @DisplayName("Positive test for checking if input time is after current time.")
+    void shouldNotThrowExceptionWhenInputIsAfterCurrentTime() {
+      try {
+        Time time = new Time();
+        time.setCurrentTime("11:00");
+        time.inputIsAfterCurrentTime("11:01");
+      } catch (DateTimeException e) {
+        fail("Test failed, should not thrown exception.");
+      }
+    }
+
   }
 
   @Nested
-  @DisplayName("Negative tests for setting time")
+  @DisplayName("Negative tests for setting and verifying time inputs")
   class negativeTestsForSettingTime {
     @Test
     @DisplayName("Negative test for setting time before 00:00")
@@ -79,11 +111,11 @@ public class TimeTest {
     }
     @Test
     @DisplayName("Negative test for verifying input of time after 23:59.")
-    void shouldThrowDateTimeExcWhenTimeIsNotReal() {
+    void shouldThrowDateTimeExcWhenNotVerified() {
       DateTimeException thrown = assertThrows(
         DateTimeException.class, () -> {
           Time time = new Time();
-          time.verifyInputOfTime("24:00", "test");
+          time.verifyInputOfTime("23:60", "test");
         }
       );
     }
@@ -93,7 +125,103 @@ public class TimeTest {
       DateTimeException thrown = assertThrows(
         DateTimeException.class, () -> {
           Time time = new Time();
-          time.verifyInputOfTime("01:60", "test");
+          time.verifyInputOfTime("-1:00", "test");
+        }
+      );
+    }
+    @Test
+    @DisplayName("Negative test for verifying input of time when time is empty.")
+    void shouldThrowDateTimeExcWhenTimeIsEmpty() {
+      DateTimeException thrown = assertThrows(
+        DateTimeException.class, () -> {
+          Time time = new Time();
+          time.verifyInputOfTime("", "test");
+        }
+      );
+    }
+    @Test
+    @DisplayName("Negative test for when input is non-numeric characters.")
+    void shouldThrowExcWhenInputIsNonNumeric() {
+      DateTimeException thrown = assertThrows(
+          DateTimeException.class, () -> {
+            Time time = new Time();
+            time.verifyInputOfTime("aa:bb", "test");
+          }
+      );
+    }
+    @Test
+    @DisplayName("Negative test for when input is non-numeric and numeric characters.")
+    void shouldThrowExcWhenInputIsNonNumericAndNumeric() {
+      DateTimeException thrown = assertThrows(
+          DateTimeException.class, () -> {
+            Time time = new Time();
+            time.verifyInputOfTime("a1:b0", "test");
+          }
+      );
+    }
+    @Test
+    @DisplayName("Negative test for when input is in H:mm.")
+    void shouldThrowExcWhenInputIsHmm() {
+      DateTimeException thrown = assertThrows(
+          DateTimeException.class, () -> {
+            Time time = new Time();
+            time.verifyInputOfTime("1:00", "test");
+          }
+      );
+    }
+    @Test
+    @DisplayName("Negative test for when input is in HH:m.")
+    void shouldThrowExcWhenInputIsHHm() {
+      DateTimeException thrown = assertThrows(
+          DateTimeException.class, () -> {
+            Time time = new Time();
+            time.verifyInputOfTime("11:0", "test");
+          }
+      );
+    }
+    @Test
+    @DisplayName("Negative test when input is HH-MM.")
+    void shouldThrowExcWhenInputIsWithLine() {
+      DateTimeException thrown = assertThrows(
+          DateTimeException.class, () -> {
+            Time time = new Time();
+            time.verifyInputOfTime("11-00", "test");
+          }
+      );
+    }
+
+    @Nested
+    @DisplayName("Negative test for when input is in HH:mm (am/pm).")
+    class negativeVerifyMethodsForAmPmFormatInput {
+      @Test
+      @DisplayName("Negative test for when input is in Hpm.")
+      void shouldThrowExcWhenInputIsHam() {
+        DateTimeException thrown = assertThrows(
+          DateTimeException.class, () -> {
+            Time time = new Time();
+            time.verifyInputOfTime("1am", "test");
+          }
+        );
+      }
+      @Test
+      @DisplayName("Negative test for when input is in H:MMpm.")
+      void shouldThrowExcWhenInputIsHMMpm() {
+        DateTimeException thrown = assertThrows(
+          DateTimeException.class, () -> {
+            Time time = new Time();
+            time.verifyInputOfTime("1:30pm", "test");
+          }
+        );
+      }
+    }
+    @Test
+    @DisplayName("Negative test for verifying when input time is before current time.")
+    void shouldThrowDateTimeExcWhenInputIsBeforeCurrentTime() {
+      DateTimeException thrown = assertThrows(
+        DateTimeException.class, () -> {
+          Time time = new Time();
+          time.setCurrentTime("13:00");
+          time.inputIsAfterCurrentTime("11:00");
         }
       );
     }
