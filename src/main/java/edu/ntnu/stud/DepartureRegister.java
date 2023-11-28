@@ -22,7 +22,7 @@ import static java.time.temporal.ChronoUnit.MINUTES;
  *
  * @since 0.2
  * @author Ingrid Midtmoen Døvre
- * @version 0.5
+ * @version 0.6
  */
 public class DepartureRegister {
   private ArrayList<TrainDeparture> allDepartures;
@@ -147,13 +147,15 @@ public class DepartureRegister {
 
    * @param listOfDepartures An ArrayList of Train departures to be sorted.
    */
-  protected void sortListByTime(ArrayList<TrainDeparture> listOfDepartures) {
+  protected ArrayList<TrainDeparture> sortListByTime(ArrayList<TrainDeparture> listOfDepartures) {
+    ArrayList<TrainDeparture> departuresAfterCurrentTime = new ArrayList<>();
     listOfDepartures.forEach(departure -> {
-      if (time.getCurrentTime().isAfter(departure.getDepartureTime())) {
-        listOfDepartures.remove(departure);
+      if (time.getCurrentTime().isBefore(departure.getDepartureTime())) {
+        departuresAfterCurrentTime.add(departure);
       }
     });
-    listOfDepartures.sort(Comparator.comparing(TrainDeparture::getDepartureTime));
+    departuresAfterCurrentTime.sort(Comparator.comparing(TrainDeparture::getDepartureTime));
+    return departuresAfterCurrentTime;
   }
 
   /**
@@ -163,17 +165,17 @@ public class DepartureRegister {
    * @return a String object with all information about the departures, as a list.
    */
   public String showListOfDepartures(ArrayList<TrainDeparture> chosenDepartures) {
-    sortListByTime(chosenDepartures);
     StringBuilder listOfDepartures = new StringBuilder();
     listOfDepartures.append("------------------------------------------------------------"
         + "----------------------------\n");
-    listOfDepartures.append(String.format("| %-13s | %-14s | %-5s | %20s | %-5s | %-12s |",
-        "Train number", "Departure time", "Line", "Destination", "Track", "minutes left"));
+    listOfDepartures.append(String.format("| %-13s | %-14s | %-5s | %20s | %-5s | %12s |",
+        "Train number", "Departure time", "Line", "Destination", "Track", "Time left"));
     listOfDepartures.append("""
 
         ----------------------------------------------------------------------------------------
         """);
-    chosenDepartures.forEach(departure -> {
+    ArrayList<TrainDeparture> newSortedListOfDepartures = sortListByTime(chosenDepartures);
+    newSortedListOfDepartures.forEach(departure -> {
       listOfDepartures.append(String.format("| %13s | %14s | %5s | %20s | %5s | %12s |\n",
           departure.getTrainNumber(), departure.getDepartureTime(), departure.getLine(),
           departure.getDestination(), departure.getTrack(),
@@ -194,7 +196,8 @@ public class DepartureRegister {
   public String searchByTrainNumber(int trainNumber) {
     ArrayList<TrainDeparture> departureWithTrainNumber = new ArrayList<>();
     allDepartures.forEach(departure -> {
-      if (trainNumber == departure.getTrainNumber()) {
+      if (trainNumber == departure.getTrainNumber()
+          && time.getCurrentTime().isBefore(departure.getDepartureTime())) {
         departureWithTrainNumber.add(departure);
       }
     });
@@ -240,28 +243,37 @@ public class DepartureRegister {
   }
 
   /**
-   * This method calculates the minutes left before departure time. It is set to private because it
-   * is only used in this class inside the searchByDestination() and showAllDepartures() methods.
+   * This method calculates the minutes left before departure time. If the train does not exist
+   * in the register, the method returns null.
+   * <p>It is set to protected because it is only used in this class inside the
+   * searchByDestination() and showAllDepartures() methods. As well as in the
+   * DepartureRegisterTest class. Therefore, it cant be private.</p>
 
    * @param departureTime the departure time of the departure.
    * @param trainNumber the train number of the departure.
-   * @return an Integer value of the minutes left before departure.
+   * @return a String representation of the time left before departure.
    */
-  private double minutesUntilDeparture(LocalTime departureTime, int trainNumber) {
-    double timeLeft;
-    double hoursAndMinutes = 0;
+  protected String minutesUntilDeparture(LocalTime departureTime, int trainNumber) {
+    double timeLeft = 0.0;
+    boolean departureExists = false;
+    String hoursAndMin = "";
     for (TrainDeparture departure : allDepartures) {
       if (departure.getDepartureTime().equals(departureTime) && departure.getTrainNumber()
           == trainNumber) {
-        timeLeft = (int) MINUTES.between(time.getCurrentTime(), departureTime);
-        if (timeLeft < 60) {
-          hoursAndMinutes = timeLeft;
-        } else if (timeLeft > 60) {
-          hoursAndMinutes = ((timeLeft / 60) * 100) + (timeLeft % 60);
-        }
+        timeLeft = MINUTES.between(time.getCurrentTime(), departureTime);
+        departureExists = true;
       }
     }
-    return (hoursAndMinutes); // todo: fiks denne metoden please
+    if (!departureExists || timeLeft < 0) {
+      hoursAndMin = "";
+    } else if (timeLeft < 60) {
+      hoursAndMin = (int) timeLeft + " min";
+    } else if (timeLeft > 60) {
+      int hours = (int) timeLeft / 60;
+      int minutes = (int) Math.round((timeLeft % 60) % 60);
+      hoursAndMin = hours + "h " + minutes + " min";
+    }
+    return hoursAndMin;
   }
 }
 
