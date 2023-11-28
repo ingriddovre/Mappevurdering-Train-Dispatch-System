@@ -1,4 +1,5 @@
 package edu.ntnu.stud;
+
 import java.time.DateTimeException;
 import java.time.LocalTime;
 import java.util.ArrayList;
