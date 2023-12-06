@@ -65,9 +65,9 @@ public class TrainDeparture {
    *                    is given as an Integer. The number is unique within a 24-hour period.<p>
    *                    The {@code train number} is set as a final Integer because it will not be
    *                    changed, and the number will only contain Natural(N) numbers.</p>
-   * @param destination The final {@code destination} for the train. The {@code destination} is given
-   *                    as a String, and is displayed accordingly.<p>Setting the parameter as a
-   *                    final String is most appropriate because it is a word. For example, a
+   * @param destination The final {@code destination} for the train. The {@code destination} is
+   *                    given as a String, and is displayed accordingly.<p>Setting the parameter as
+   *                    a final String is most appropriate because it is a word. For example, a
    *                    train departure from Trondheim to Oslo, has Oslo as its final
    *                    {@code destination}, and this will not change.</p>
    * @param track The {@code track} the train will depart from. The {@code track} is given as an
@@ -199,7 +199,8 @@ public class TrainDeparture {
    * useful if a departure has more than 59 min of delay. The method takes in a String parameter
    * of the new {@code departure time} in the format HH:MM. It then calls the
    * {@code verifyNewDepartureTime()} method to verify the input, and then parses the String to
-   * a {@link LocalTime} object before setting the new time.
+   * a {@link LocalTime} object before setting the new time. It will also set the {@code delay}
+   * to 0, since the {@code departure time} is changed.
    *
    * @param newDepartureTime The new {@code departure time} in the format HH:MM.
    * @throws DateTimeParseException if the String cannot be parsed to a {@link LocalTime} object.
@@ -207,6 +208,7 @@ public class TrainDeparture {
   public void setNewDepartureTime(String newDepartureTime) throws DateTimeException {
     verifyNewDepartureTime(newDepartureTime);
     this.departureTime = LocalTime.parse(newDepartureTime);
+    setDelay(0);
   }
 
   /**
