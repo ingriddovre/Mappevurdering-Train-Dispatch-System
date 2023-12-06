@@ -2,7 +2,6 @@ package edu.ntnu.stud;
 
 import java.time.DateTimeException;
 import java.time.LocalTime;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * This class is the {@code UserInterface} for the train dispatch application. The user interface
