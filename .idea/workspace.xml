@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="correction from failed git revert">
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="changed setNewDepartureTime to reset delay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +23,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -85,7 +93,20 @@
       <recent name="edu.ntnu.stud" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.stud in TrainDispatchSystem">
+  <component name="RunManager" selected="Application.TrainDispatchApp">
+    <configuration name="TrainDispatchApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDispatchApp" />
+      <module name="TrainDispatchSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.stud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DepartureRegisterTest$checkIfDepartureExistsTests.shouldReturnTrueWhenLineAndTimeIsCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
@@ -118,21 +139,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DepartureRegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TrainDispatchSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.stud.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.stud" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.DepartureRegisterTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TrainDepartureTest$negativeDepartureTests.throwsDateTimeExceptionBeforeCurrentTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
       <extension name="coverage">
@@ -158,7 +164,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.DepartureRegisterTest" />
+      <item itemvalue="Application.TrainDispatchApp" />
       <item itemvalue="JUnit.DepartureRegisterTest$checkIfDepartureExistsTests.shouldReturnTrueWhenLineAndTimeIsCorrect" />
       <item itemvalue="JUnit.DepartureRegisterTest$checkIfDepartureExistsTests.shouldReturnTrueWhenOnlyTrainNumberExists" />
       <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.throwsDateTimeExceptionBeforeCurrentTime" />
@@ -166,11 +172,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TrainDispatchApp" />
         <item itemvalue="JUnit.stud in TrainDispatchSystem" />
         <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.throwsDateTimeExceptionBeforeCurrentTime" />
         <item itemvalue="JUnit.DepartureRegisterTest$checkIfDepartureExistsTests.shouldReturnTrueWhenLineAndTimeIsCorrect" />
         <item itemvalue="JUnit.DepartureRegisterTest$checkIfDepartureExistsTests.shouldReturnTrueWhenOnlyTrainNumberExists" />
-        <item itemvalue="JUnit.DepartureRegisterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -259,7 +265,21 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1701862831032</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="rewritten JavaDoc for the TrainDeparture class">
+      <option name="closed" value="true" />
+      <created>1701865682044</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1701865682044</updated>
+    </task>
+    <task id="LOCAL−00011" summary="changed setNewDepartureTime to reset delay">
+      <option name="closed" value="true" />
+      <created>1701878181663</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1701878181663</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +304,9 @@
     <MESSAGE value="rm Time class" />
     <MESSAGE value="started testing" />
     <MESSAGE value="correction from failed git revert" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction from failed git revert" />
+    <MESSAGE value="rewritten JavaDoc for the TrainDeparture class" />
+    <MESSAGE value="changed setNewDepartureTime to reset delay" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed setNewDepartureTime to reset delay" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">

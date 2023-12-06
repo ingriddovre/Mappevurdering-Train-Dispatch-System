@@ -5,6 +5,7 @@ import static java.time.temporal.ChronoUnit.MINUTES;
 import java.time.DateTimeException;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 /**
  * This is the {@code DepartureRegister} class.
@@ -23,9 +24,9 @@ import java.util.Comparator;
 public class DepartureRegister {
   /**
    * The {@link ArrayList} that holds all {@link TrainDeparture} objects. It is set as private final
-   * to prevent other classes from changing it.
+   * to prevent other classes from changing it. // todo: hvorfor er den static??? forklar
    */
-  private ArrayList<TrainDeparture> allDepartures;
+  private static ArrayList<TrainDeparture> allDepartures;
   Time time = new Time();
 
   /**
@@ -40,7 +41,6 @@ public class DepartureRegister {
 
   /**
    * This method is used to get all the departures registered.
-   * @return an ArrayList of all the departures.
    * This is the accessor method for the {@code allDepartures} {@link ArrayList}.
    *
    * @return {@code allDepartures}, an {@link ArrayList} of all the departures registered.
@@ -265,7 +265,7 @@ public class DepartureRegister {
   public String searchByDestination(String destination) {
     ArrayList<TrainDeparture> toDestination = new ArrayList<>();
     allDepartures.forEach(departure -> {
-      if (destination.equals(departure.getDestination())
+      if (destination.equalsIgnoreCase(departure.getDestination())
           && time.getCurrentTime().isBefore(departure.getDepartureTime())) {
         toDestination.add(departure);
       }
@@ -316,7 +316,7 @@ public class DepartureRegister {
       hoursAndMin = "";
     } else if (timeLeft < 60) {
       hoursAndMin = (int) timeLeft + " min";
-    } else if (timeLeft > 60) {
+    } else {
       int hours = (int) timeLeft / 60;
       int minutes = (int) Math.round((timeLeft % 60) % 60);
       hoursAndMin = hours + "h " + minutes + " min";
