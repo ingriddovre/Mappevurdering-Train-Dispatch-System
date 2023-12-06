@@ -2,6 +2,7 @@ package edu.ntnu.stud;
 
 import java.time.DateTimeException;
 import java.time.LocalTime;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * This class is the {@code UserInterface} for the train dispatch application. The user interface
@@ -9,7 +10,6 @@ import java.util.Scanner;
  *The {@code init()} method is the menu the user is seeing, and the {@code start()} method
  * has a switch statement that is used to handle the users input.
  * <p>Goal: Handle all the communication with the user and to make sure all input is correct.</p>
- *
  *
  * @since 0.3
  * @author Ingrid Midtmoen Døvre
@@ -52,9 +52,17 @@ public class UserInterface {
     System.out.println("Welcome to the Train Dispatch Application!");
     System.out.println("First, register you current time in the format (HH:MM): ");
     String currentTime = scanner.nextLine();
-    time.setCurrentTime(currentTime);
-    System.out.println("You set the current time to be: " + time.getCurrentTime());
-
+    boolean correctTime = false;
+    while (!correctTime) {
+      try {
+        time.setCurrentTime(currentTime);
+        correctTime = true;
+        System.out.println("You set the current time to be: " + time.getCurrentTime());
+      } catch (DateTimeException e) {
+        System.out.println("Please enter a valid time in the format: (HH:MM)");
+        currentTime = scanner.nextLine();
+      }
+    }
     DepartureRegister depReg = new DepartureRegister();
     depReg.getAllDepartures().add(new TrainDeparture("12:00", "L1", 1, "Oslo", 2, 0));
     depReg.getAllDepartures().add(new TrainDeparture("13:00", "L2", 2, "Trondheim", 3, 15));
@@ -63,22 +71,31 @@ public class UserInterface {
 
     System.out.println("Here is a list of all departures available for you: " + "\n"
         + depReg.showListOfDepartures(depReg.getAllDepartures()));
-    init();
-    int choice = scanner.nextInt();
+    int choice = 0;
     while (choice != 10) {
-      init();
-      choice = scanner.nextInt();
-      switch (choice) {
-        case 1 -> uiNewDeparture();
-        case 2 -> uiSetTrack();
-        case 3 -> uiSetNewDepartureTime();
-        case 4 -> uiSetDelay();
-        case 5 -> uiSearchByTrainNumber();
-        case 6 -> uiSearchByDestination();
-        case 7 -> uiSetNewCurrentTime();
-        case 8 -> System.out.println(depReg.showListOfDepartures(depReg.getAllDepartures()));
-        case 9 -> uiRemoveDeparturesBeforeChosenTime();
-        default -> System.out.println("Invalid input. Please try again.");
+      try {
+        init();
+        choice = scanner.nextInt();
+        switch (choice) {
+          case 1 -> uiNewDeparture();
+          case 2 -> uiSetTrack();
+          case 3 -> uiSetNewDepartureTime();
+          case 4 -> uiSetDelay();
+          case 5 -> uiSearchByTrainNumber();
+          case 6 -> uiSearchByDestination();
+          case 7 -> uiSetNewCurrentTime();
+          case 8 -> System.out.println(depReg.showListOfDepartures(depReg.getAllDepartures()));
+          case 9 -> uiRemoveDeparturesBeforeChosenTime();
+          default -> {
+            if (choice == 10) {
+              break;
+            }
+            System.out.println("Please choose one of the options from the menu.");
+          }
+        }
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.println("Invalid input. Please try again:");
       }
     }
     System.out.println("Exiting the Train Dispatch Application.");
