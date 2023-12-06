@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="started testing">
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="correction from failed git revert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/DepartureRegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/stud/DepartureRegisterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +252,14 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1699806842123</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="correction from failed git revert">
+      <option name="closed" value="true" />
+      <created>1701862831032</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1701862831032</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +283,8 @@
     <MESSAGE value="rm Time class &amp; full javadoc on TrainDeparture class" />
     <MESSAGE value="rm Time class" />
     <MESSAGE value="started testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="started testing" />
+    <MESSAGE value="correction from failed git revert" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction from failed git revert" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
@@ -317,6 +321,6 @@
     <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowExceptionWhenTimeIsAfter2359.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowExceptionWhenTimeIsAfter2359 Coverage Results" MODIFIED="1701007437574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$stud_in_TrainDispatchSystem.ic" NAME="stud in TrainDispatchSystem Coverage Results" MODIFIED="1701862198119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$stud_in_TrainDispatchSystem.ic" NAME="stud in TrainDispatchSystem Coverage Results" MODIFIED="1701862718625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
