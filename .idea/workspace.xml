@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="changed setNewDepartureTime to reset delay">
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="working application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +91,7 @@
       <recent name="edu.ntnu.stud" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TrainDispatchApp">
+  <component name="RunManager" selected="Maven.TrainDispatchSystem [compile]">
     <configuration name="TrainDispatchApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDispatchApp" />
       <module name="TrainDispatchSystem" />
@@ -157,11 +155,42 @@
     </configuration>
     <configuration name="stud in TrainDispatchSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainDispatchSystem" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/src/test/java/edu/ntnu/stud" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="TrainDispatchSystem [compile]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compile" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.TrainDispatchApp" />
@@ -169,11 +198,12 @@
       <item itemvalue="JUnit.DepartureRegisterTest$checkIfDepartureExistsTests.shouldReturnTrueWhenOnlyTrainNumberExists" />
       <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.throwsDateTimeExceptionBeforeCurrentTime" />
       <item itemvalue="JUnit.stud in TrainDispatchSystem" />
+      <item itemvalue="Maven.TrainDispatchSystem [compile]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TrainDispatchApp" />
         <item itemvalue="JUnit.stud in TrainDispatchSystem" />
+        <item itemvalue="Application.TrainDispatchApp" />
         <item itemvalue="JUnit.TrainDepartureTest$negativeDepartureTests.throwsDateTimeExceptionBeforeCurrentTime" />
         <item itemvalue="JUnit.DepartureRegisterTest$checkIfDepartureExistsTests.shouldReturnTrueWhenLineAndTimeIsCorrect" />
         <item itemvalue="JUnit.DepartureRegisterTest$checkIfDepartureExistsTests.shouldReturnTrueWhenOnlyTrainNumberExists" />
@@ -279,7 +309,14 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1701878181663</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="working application">
+      <option name="closed" value="true" />
+      <created>1701882187874</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1701882187874</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +343,8 @@
     <MESSAGE value="correction from failed git revert" />
     <MESSAGE value="rewritten JavaDoc for the TrainDeparture class" />
     <MESSAGE value="changed setNewDepartureTime to reset delay" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed setNewDepartureTime to reset delay" />
+    <MESSAGE value="working application" />
+    <option name="LAST_COMMIT_MESSAGE" value="working application" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
@@ -343,6 +381,6 @@
     <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowExceptionWhenTimeIsAfter2359.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowExceptionWhenTimeIsAfter2359 Coverage Results" MODIFIED="1701007437574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$stud_in_TrainDispatchSystem.ic" NAME="stud in TrainDispatchSystem Coverage Results" MODIFIED="1701862718625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$stud_in_TrainDispatchSystem.ic" NAME="stud in TrainDispatchSystem Coverage Results" MODIFIED="1701882467214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

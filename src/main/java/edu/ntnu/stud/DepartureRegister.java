@@ -5,7 +5,6 @@ import static java.time.temporal.ChronoUnit.MINUTES;
 import java.time.DateTimeException;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 /**
  * This is the {@code DepartureRegister} class.
@@ -24,7 +23,10 @@ import java.util.Comparator;
 public class DepartureRegister {
   /**
    * The {@link ArrayList} that holds all {@link TrainDeparture} objects. It is set as private final
-   * to prevent other classes from changing it. // todo: hvorfor er den static??? forklar
+   * to prevent other classes from changing it. It is used in the {@link UserInterface} to show
+   * the list of departures. The {@link ArrayList} is set as static to make it possible to use
+   * it in the {@link UserInterface} without creating a new {@code DepartureRegister} object.
+   * <p>The {@link ArrayList} is initialized in the constructor.</p>
    */
   private static ArrayList<TrainDeparture> allDepartures;
   Time time = new Time();
@@ -305,7 +307,7 @@ public class DepartureRegister {
   protected String minutesUntilDeparture(int trainNumber) {
     double timeLeft = 0.0;
     boolean departureExists = false;
-    String hoursAndMin = "";
+    String hoursAndMin;
     for (TrainDeparture departure : allDepartures) {
       if (departure.getTrainNumber() == trainNumber) {
         timeLeft = MINUTES.between(time.getCurrentTime(), departure.getDepartureTime());
