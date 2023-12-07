@@ -25,7 +25,7 @@ public class UserInterface {
    * This method shows the menu of options for the user. The menu is shown inside the
    * {@code start()} method after the current time is registered.
    */
-  public void init() {
+  private void init() {
     System.out.println("""
         Please choose one of the following options:
         1. Register a new departure.
