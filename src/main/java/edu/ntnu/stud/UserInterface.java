@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * This class is the {@code UserInterface} for the train dispatch application. The user interface
  * has 2 methods that is used in the {@link TrainDispatchApp} class to start the application.
- *The {@code init()} method is the menu the user is seeing, and the {@code start()} method
+ * The {@code init()} method is the menu the user is seeing, and the {@code start()} method
  * has a switch statement that is used to handle the users input.
  * <p>Goal: Handle all the communication with the user and to make sure all input is correct.</p>
  *
@@ -443,6 +443,7 @@ public class UserInterface {
         chosenTime = scanner.nextLine();
       }
     }
+    System.out.println("These are the departures leaving after " + chosenTime + ":\n");
     System.out.println(depReg.removeDeparturesBeforeChosenTime(LocalTime.parse(chosenTime)));
   }
 

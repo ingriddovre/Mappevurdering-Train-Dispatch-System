@@ -13,9 +13,9 @@ import java.time.format.DateTimeParseException;
  * The constructor initializes new objects of the {@link TrainDeparture} class.
  * <p>Goal: To represent a specific train departure.</p>
  *
- * @author Ingrid Midtmoen Døvre
- * @version 1.4
  * @since 0.1
+ * @author Ingrid Midtmoen Døvre
+ * @version 1.0
  */
 
 public class TrainDeparture {

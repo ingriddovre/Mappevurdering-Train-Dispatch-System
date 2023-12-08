@@ -17,15 +17,18 @@ import java.util.Comparator;
  *
  * @since 0.2
  * @author Ingrid Midtmoen Døvre
- * @version 0.7
+ * @version 1.0
  */
 
 public class DepartureRegister {
   /**
-   * The {@link ArrayList} that holds all {@link TrainDeparture} objects. It is set as private final
-   * to prevent other classes from changing it. It is used in the {@link UserInterface} to show
-   * the list of departures. The {@link ArrayList} is set as static to make it possible to use
-   * it in the {@link UserInterface} without creating a new {@code DepartureRegister} object.
+   * The {@link ArrayList} that holds all {@link TrainDeparture} objects. It is set as private
+   * static to prevent other classes from changing it, or creating a new list every time
+   * the {@link DepartureRegister} is initialized in another class. It is used in the
+   * {@link UserInterface} in various methods to show the list of registered departures.
+   * The {@link ArrayList} is set as static to make it possible to only have one version of it
+   * in the program. This is to prevent the list from being reset every time the
+   * {@link DepartureRegister} is initialized in another class.
    * <p>The {@link ArrayList} is initialized in the constructor.</p>
    */
   private static ArrayList<TrainDeparture> allDepartures;

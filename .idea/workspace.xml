@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="push working application">
+    <list default="true" id="6fe7f09b-5a97-488b-a186-d0808f714b1c" name="Changes" comment="access modification">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/DepartureRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDeparture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/TrainDispatchApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/stud/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +52,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -56,24 +64,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TrainDispatchApp.executor": "Run",
+    "JUnit.stud in TrainDispatchSystem.executor": "Coverage",
+    "Maven.TrainDispatchSystem [compile].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\Min disk\Programmering 1\Prosjekt mappevurdering\TrainDispatchSystem\src\test\java" />
@@ -91,7 +103,7 @@
       <recent name="edu.ntnu.stud" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TrainDispatchApp">
+  <component name="RunManager" selected="JUnit.stud in TrainDispatchSystem">
     <configuration name="TrainDispatchApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.stud.TrainDispatchApp" />
       <module name="TrainDispatchSystem" />
@@ -178,6 +190,7 @@
                 <option value="compile" />
               </list>
             </option>
+            <option name="multimoduleDir" />
             <option name="pomFileName" />
             <option name="profilesMap">
               <map />
@@ -210,6 +223,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-4edb7f01" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -233,7 +253,9 @@
       <workItem from="1699962050662" duration="19892000" />
       <workItem from="1701901905630" duration="324000" />
       <workItem from="1701956093436" duration="233000" />
-      <workItem from="1701958356786" duration="2509000" />
+      <workItem from="1701958356786" duration="3312000" />
+      <workItem from="1702034092797" duration="60000" />
+      <workItem from="1702034231837" duration="2669000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -326,7 +348,14 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1701882578743</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="access modification">
+      <option name="closed" value="true" />
+      <created>1701968091138</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1701968091138</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,20 +384,15 @@
     <MESSAGE value="changed setNewDepartureTime to reset delay" />
     <MESSAGE value="working application" />
     <MESSAGE value="push working application" />
-    <option name="LAST_COMMIT_MESSAGE" value="push working application" />
+    <MESSAGE value="access modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="access modification" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TrainDispatchSystem$edu_ntnu_stud_in_TrainDispatchSystem.ic" NAME="edu.ntnu.stud in TrainDispatchSystem Coverage Results" MODIFIED="1701510184032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest.ic" NAME="TimeTest Coverage Results" MODIFIED="1701269526782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>edu.ntnu.stud.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowDateTimeExcWhenTimeIsNotReal2.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsNotReal2 Coverage Results" MODIFIED="1701012926374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>edu.ntnu.stud.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_assertThrowsDateTimeExceptionAfter2359.ic" NAME="TrainDepartureTest.assertThrowsDateTimeExceptionAfter2359 Coverage Results" MODIFIED="1700468195052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$DepartureRegisterTest_sortListByTimeTests_shuldRemoveDeparturesBeforeCurrentTime.ic" NAME="DepartureRegisterTest$sortListByTimeTests.shuldRemoveDeparturesBeforeCurrentTime Coverage Results" MODIFIED="1701178060043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TrainDispatchSystem$DepartureRegisterTest.ic" NAME="DepartureRegisterTest Coverage Results" MODIFIED="1701179495179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -377,21 +401,27 @@
     <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_positiveTrainDepartureTests_shouldSetNewDepartureTimeTo1400.ic" NAME="TrainDepartureTest$positiveTrainDepartureTests.shouldSetNewDepartureTimeTo1400 Coverage Results" MODIFIED="1701003481601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest.ic" NAME="TrainDepartureTest Coverage Results" MODIFIED="1701512123363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowExceptionWhenTimeIsAfter2359.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowExceptionWhenTimeIsAfter2359 Coverage Results" MODIFIED="1701007437574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$DepartureRegisterTest_sortListByTimeTests_shuldRemoveDeparturesBeforeCurrentTime.ic" NAME="DepartureRegisterTest$sortListByTimeTests.shuldRemoveDeparturesBeforeCurrentTime Coverage Results" MODIFIED="1701178060043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest.ic" NAME="TimeTest Coverage Results" MODIFIED="1701269526782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_positiveVerifyMethodTests_shouldNotThrowExcForPosDelayLessThan60.ic" NAME="TrainDepartureTest$positiveVerifyMethodTests.shouldNotThrowExcForPosDelayLessThan60 Coverage Results" MODIFIED="1700938598705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_assertThrowsDateTimeExceptionAfter2359.ic" NAME="TrainDepartureTest.assertThrowsDateTimeExceptionAfter2359 Coverage Results" MODIFIED="1700468195052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowDateTimeExcWhenTimeIsNotReal.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsNotReal Coverage Results" MODIFIED="1701007738993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowExceptionWhenTimeIsAfter2359.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowExceptionWhenTimeIsAfter2359 Coverage Results" MODIFIED="1701007437574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$stud_in_TrainDispatchSystem.ic" NAME="stud in TrainDispatchSystem Coverage Results" MODIFIED="1702034457830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest.ic" NAME="TrainDepartureTest Coverage Results" MODIFIED="1701512123363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.ntnu.stud.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TrainDispatchSystem$stud_in_TrainDispatchSystem.ic" NAME="stud in TrainDispatchSystem Coverage Results" MODIFIED="1701882467214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TrainDepartureTest_positiveVerifyMethodTests_shouldNotThrowExcForPosDelayLessThan60.ic" NAME="TrainDepartureTest$positiveVerifyMethodTests.shouldNotThrowExcForPosDelayLessThan60 Coverage Results" MODIFIED="1700938598705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.ntnu.stud.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrainDispatchSystem$TimeTest_negativeTestsForSettingTime_shouldThrowDateTimeExcWhenTimeIsNotReal2.ic" NAME="TimeTest$negativeTestsForSettingTime.shouldThrowDateTimeExcWhenTimeIsNotReal2 Coverage Results" MODIFIED="1701012926374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.ntnu.stud.*</FILTER>
+    </SUITE>
   </component>
 </project>

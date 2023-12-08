@@ -13,13 +13,13 @@ import java.time.LocalTime;
  * @see LocalTime
  * @since 0.5
  * @author Ingrid Midtmoen Døvre
- * @version 0.4
+ * @version 1.0
  */
 
 public class Time {
   /**
    * The {@code current time } of the system, chosen by the user, but can not be set backwards in
-   * time. It is set to static because we only want one time for the whole system.
+   * time. It is set to static because we only want one set time for the whole system.
    */
   private static LocalTime currentTime;
 
